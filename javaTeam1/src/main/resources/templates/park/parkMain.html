@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1400"><!--다른 매체에서도 너비 오류 없이 볼 수 있게-->
+    <link href="./img/pa.png" rel="icon" type="image/png" sizes="32x32" ><!--파비콘-->
+    <title>헬로끄라비</title>
+    <!-- 폰트연결 -->
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/sub1.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script><!-- 수정X -->
+
+    <!-- js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><!-- aos 라이브러리 -->
+    <script src="/js/aos.js"></script><!-- aos 소스 -->
+    <script src="/js/sub.js"></script>
+    <script src="/js/script.js"></script>
+
+
+</head>
+
+<body>
+<a href="#" class="top"><img src="./img/topbotton.png" alt="top버튼"></a>
+<!-- 헤더 -->
+
+<div th:replace="~{/layout/header :: header-basic}"></div>
+
+<div class="sub2_top">
+    <h2>끄라비 여행에 <br>
+        대한 모든것, 헬로끄라비</h2>
+</div>
+
+<div id="sub2">
+    <h2>주변 관광지</h2>
+    <h4>끄라비의 주변 관광지를 소개해드려요.</h4>
+    <div class="spot1">
+        <img src="./img/sub/spot-1.png" alt="아오낭비치">
+        <div class="spottext">
+            <h3>아오낭비치</h3>
+            <p>만약 숙소를 예약한다면 아오낭비치 근처를 추천드려요. <br>
+                끄라비에서 많은 사람들이 모이는 곳으로  아오낭의 <br>
+                로컬가게들부터 쇼핑거리, 투어리스트,
+                작은 야시장까지 갖추고 있답니다. <br>
+                석양이 지는 아오낭비치는 선셋포인트에서
+                황금빛 노을과 불꽃쇼를 감상하길 추천해요.</p>
+        </div>
+    </div>
+    <div class="spot2">
+        <div class="spottext">
+            <h3>라일레이</h3>
+            <p>아오낭비치에서 배를 타고 10분이면 갈 수 있는
+                라일레이는 아름다운 바다인 프라낭비치와
+                암벽등반을 할 수 있는 곳으로 많은 관광객들이
+                끄라비에 오면 필수로 들러보는 곳이랍니다. <br>
+                멋진 증유석 동굴과 원숭이까지 구경하고
+                석양이 아름다운 서라일레이 비치에서는 석양을 보며
+                식사를 할 수 있는 <br> 리조트와 식당들도 있어요.</p>
+        </div>
+        <img src="./img/sub/spot-2.png" alt="라일레이">
+    </div>
+    <div class="spot3">
+        <img src="./img/sub/spot-3.png" alt="피피섬">
+        <div class="spottext">
+            <h3>피피섬</h3>
+            <p>안다만의 에메랄드 빛 바다가 정말 아름다운
+                피피섬은 <br> 몰디브 바다가 부럽지 않은 예쁜 바다를
+                구경할 수 있어요. <br>
+                레오나르도 디카프리오 주연의 영화인 '비치'의 <br>
+                뱀부섬과 물고기와 산호초를 보며 수영하는
+                스노클링까지 '4섬투어' , '홍섬투어', '피피섬 투어'
+                같은 대표적인 <br>
+                여행코스를 할 수 있습니다.
+            </p>
+        </div>
+    </div>
+    <div class="spot4">
+
+        <div class="spottext">
+            <h3>끄라비타운 야시장</h3>
+            <p>끄라비 타운 시내에 위치한 나이트마켓, <br>
+                다양한 음식과 불쇼, 태국 전통의상 등 공연이 있어
+                먹거리, 볼거리 모두 충족할 수 있습니다. <br>
+                금, 토, 일 저녁 5시부터 오픈하는 야시장으로 <br>
+                정해진 요일과 시간에만 갈 수 있습니다. <br>
+                끄라비의 핫한 야시장의 활기찬 분위기를 느껴보세요.
+            </p>
+        </div>
+        <img src="./img/sub/spot-4.png" alt="야시장">
+    </div>
+</div>
+
+<div class="subban2">
+    <h1>Krabi travel with 'Hello Krabi'</h1>
+    <h4>끄라비의 숙소, 투어, 맛집까지 <br>
+        모두 헬로끄라비와 함께하세요.</h4>
+</div>
+
+<div class="sub_hotel">
+    <div class="hotelbox">
+        <h3>끄라비 <br>
+            인기숙소</h3>
+        <ul class="hotelbot">
+            <li><a href="#">아오낭</a></li>
+            <li><a href="#">라일레이</a></li>
+            <li><a href="#">피피섬</a></li>
+        </ul>
+    </div>
+    <ul class="hotellist">
+        <li><a href="#">
+            <img src="./img/sub/hotel4.png" alt="호텔사진">
+            <div class="hoteltext">
+                <div class="star">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <p>5성급</p>
+                </div>
+                <h3>라야바디 호텔 (SHA Plus+)</h3>
+                <p>라일레이에서 제일 고급 숙소, 자연 속에
+                    있는 듯한 프라이빗 풀빌라</p>
+            </div>
+        </a>
+        </li>
+
+        <li><a href="#">
+            <img src="./img/sub/hotel4.png" alt="호텔사진">
+            <div class="hoteltext">
+                <div class="star">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <p>5성급</p>
+                </div>
+                <h3>라야바디 호텔 (SHA Plus+)</h3>
+                <p>라일레이에서 제일 고급 숙소, 자연 속에
+                    있는 듯한 프라이빗 풀빌라</p>
+            </div>
+        </a>
+        </li>
+
+
+        <li><a href="#">
+            <img src="./img/sub/hotel4.png" alt="호텔사진">
+            <div class="hoteltext">
+                <div class="star">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <img src="./img/star.png" alt="별">
+                    <p>5성급</p>
+                </div>
+                <h3>라야바디 호텔 (SHA Plus+)</h3>
+                <p>라일레이에서 제일 고급 숙소, 자연 속에
+                    있는 듯한 프라이빗 풀빌라</p>
+            </div>
+        </a>
+        </li>
+    </ul>
+</div>
+
+<div id="tourlist">
+    <div class="tourtitle">
+        <h2>지금핫한<br>
+            끄라비투어</h2>
+    </div>
+    <div class="swiper-container sub2_gallery">
+        <div class="sub2_gallery_inner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#"><img src="./img/sub/sub_tour.png" alt="갤러리1"></a>
+                </div>
+                <div class="swiper-slide twoclass">
+                    <a href="#"><img src="./img/sub/sub_tour2.png" alt="갤러리1"></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="./img/sub/sub_tour3.png" alt="갤러리1"></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="./img/sub/sub_tour2.png" alt="갤러리1"></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#"><img src="./img/sub/sub_tour.png" alt="갤러리1"></a>
+                </div>
+
+            </div>
+            <!-- 블릿 버튼 -->
+            <div class="swiper-pagination"></div>
+            <!-- 화살표 버튼 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+</div>
+
+
+<div th:replace="~{/layout/footer :: footer-basic}"></div>
+
+
+
+
+
+
+</body>
+
+</html>
