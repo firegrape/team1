@@ -18,13 +18,19 @@ public class ParkController {
 
     @RequestMapping("hello")
     public String viewTest()throws Exception{
-        return "login/register";
+        return "main";
     }
 
 
-    @RequestMapping("park/main.do")
+
+    @RequestMapping("hello1")
+    public String viewTest1()throws Exception{
+        return "park/parkMain";
+    }
+
+    @RequestMapping("park/Detail.do")
     public ModelAndView mainView()throws Exception{
-        ModelAndView mv = new ModelAndView("park/parkMain");
+        ModelAndView mv = new ModelAndView("park/parkDetail");
 
         ParkDTO parkList = parkService.selectParkList();
 
