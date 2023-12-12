@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 public interface MemberMapper {
 	public void register(MemberDTO memberDTO)throws Exception;
 
-	int isUserInfo(@Param("id") String userId, @Param("password") String userPw) throws Exception;
+	int isUserInfo(@Param("id") String id, @Param("password") String password) throws Exception;
 
-	MemberDTO getUserInfo(@Param("id") String userId) throws  Exception;
+	MemberDTO getUserInfo(@Param("id") String id) throws  Exception;
 }

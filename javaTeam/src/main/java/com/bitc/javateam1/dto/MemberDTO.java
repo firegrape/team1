@@ -9,6 +9,6 @@ public class MemberDTO {
 	private String password;
 	private String nickName;
 	private String name;
-	private int regidate;
+	private String regidate;
 	private int grade;
 }

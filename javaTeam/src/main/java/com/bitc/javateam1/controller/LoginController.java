@@ -21,22 +21,15 @@ public class LoginController {
 		return "/login/register";
 	}
 
-@PostMapping("/registerProcess")
-	public String joinProcess(MemberDTO memberDTO) throws Exception{
 
-
-			memberService.register(memberDTO);
-
-		return "redirect:/park/parkMain";
-}
 //로그인
 
-	@RequestMapping("/login")
+	@RequestMapping("/login.do")
 	public String login() throws Exception {
 		return "login/login";
 	}
 
-	@RequestMapping(value = "/login/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/LoginProcess", method = RequestMethod.POST)
 	public String loginProcess(@RequestParam("id") String id, @RequestParam("password") String password, HttpServletRequest req) throws Exception {
 
 		int result = memberService.isUserInfo(id, password);
@@ -53,7 +46,7 @@ public class LoginController {
 		}
 		else {
 
-			return "redirect:/board2/login/login.do?errorMsg=" + URLEncoder.encode("로그인 정보가 다릅니다.", "UTF-8");
+			return "redirect:/login/login.do?errorMsg=" + URLEncoder.encode("로그인 정보가 다릅니다.", "UTF-8");
 		}
 	}
 
