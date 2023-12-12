@@ -13,8 +13,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void register(MemberDTO memberDTO) throws Exception{
 
-
-
 		memberMapper.register(memberDTO);
 	}
+	@Override
+	public int isUserInfo(String id, String password) throws Exception {
+		return memberMapper.isUserInfo(id, password);
+	}
+
+	@Override
+	public MemberDTO getUserInfo(String id) throws Exception {
+		return memberMapper.getUserInfo(id);
+	}
+
 }

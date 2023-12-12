@@ -22,5 +22,20 @@
     values(#{id},#{password},#{nickName},#{name}, now())
 </insert>
 
+<!--    로그인-->
+    <select id="isUserInfo" parameterType="Map" resultType="int">
+        select count(*)as cnt
+        from t_user
+        where user_id= #{userId}
+        and user_pw = #{userPw}
+        and user_block_yn = 'N'
+    </select>
+
+    <select id="getUserInfo" parameterType="String" resultType="com.bitc.board2.dto.UserDTO">
+        select user_id, user_name, user_email, user_create_date, user_update_date
+        from t_user
+        where user_id = #{userId}
+        and user_block_yn ='N'
+    </select>
 </mapper>
 
