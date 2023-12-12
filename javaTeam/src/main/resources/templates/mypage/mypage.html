@@ -2,13 +2,12 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="/img/minsome_m_favicon.png" rel="icon" type="image/png" sizes="32x32" ><!--파비콘-->
 
     <meta name="viewport" content="width=1400"><!--다른 매체에서도 너비 오류 없이 볼 수 있게-->
-    <title>MINSOME</title>
+    <title>마이페이지</title>
     <!-- 폰트연결 -->
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
     <script
@@ -29,22 +28,131 @@
     <script src="/js/sub.js"></script>
     <script src="/js/script.js"></script>
     <meta charset="UTF-8">
-    <title>마이컬리</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    div {
+        align-content: center;
+        position: relative;
+        width: 400px;
+        margin-left: 50px;
+        margin-top: 100px;
+    }
+
+    input {
+        font-size: 25px;
+        color: #333333;
+        width: 300px;
+        border: none;
+        border-bottom: solid #aaaaaa 1px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        position: relative;
+        background: none;
+        z-index: 5;
+    }
+
+
+    span {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0%;  /* right로만 바꿔주면 오 - 왼 */
+        background-color: #666;
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        transition: 0.5s;
+    }
+
+    label {
+        position: absolute;
+        color: #aaa;
+        left: 10px;
+        font-size: 20px;
+        bottom: 8px;
+        transition: all .2s;
+    }
+
+    input:focus ~ label, input:valid ~ label {
+        font-size: 16px;
+        bottom: 40px;
+        color: #666;
+        font-weight: bold;
+    }
+
+    input:focus ~ span, input:valid ~ span {
+        width: 100%;
+    }
+
+    form {
+        width: 400px;
+        margin: auto; /* Add this line to center the form */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+</style>
+
 <body>
 <div th:replace="~{/layout/header :: header-basic}"></div>
-<div class="d-flex" id="wrapper">
+
+<main class="container">
+
+    <!--회원정보 수정 폼-->
+    <form action=""  method="post">
+        <!--            <a href="/park/main.do"><img src="/img/minsome_s_person.png" sizes="15" alt="로고"></a>-->
+        <!--    <a href="/park/main.do"><img src="/img/minsome_s_person.png" sizes="15" alt="로고"></a>-->
+        <!--    <a href="/park/main.do"><img src="/img/minsome_s_person.png" sizes="15" alt="로고"></a>-->
+
+        <h2 class="text-center">마이페이지 수정</h2>
+        <div>
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id" readonly>
+        </div>
+        <div>
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" readonly>
+        </div>
+        <div>
+            <label for="password">new PW</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label  for="nickName" >NickName</label>
+            <input type="text" id="nickName" name="nickName" required>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary form-control">완료</button>
+
+            <a class="m-5" href="/login/login.do">Back to Home</a>
+        </div>
+
+    </form>
+
+
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="sidebar-heading border-bottom bg-light">마이페이지</div>
         <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">회원정보수정</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">관심목록</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">민소매 관리</a>
-
         </div>
+        <!--        <div class="sidebar-heading border-bottom bg-light">마이페이지</div>-->
+
+
     </div>
-</div>
+
+</main>
+
 <div th:replace="/layout/footer :: footer-basic"></div>
 </body>
 

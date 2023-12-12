@@ -20,4 +20,18 @@
     SELECT seq,local,name,location FROM tb_park where seq = 4;
 </select>
 
+    <select id="getSearchList" parameterType="com.bitc.javateam1.dto.ParkDTO" resultType="com.bitc.javateam1.dto.ParkDTO">
+        SELECT seq,local,name,location
+        FROM tb_park
+
+        <choose>
+            <when test="type !=null and type.equals('local')">
+            WHERE    local LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test="type !=null and type.equals('name')">
+            WHERE    name LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+        </choose>
+
+    </select>
 </mapper>

@@ -39,6 +39,7 @@ public class LoginController {
 
 			HttpSession session = req.getSession();
 			session.setAttribute("id", user.getId());
+			session.setAttribute("nickName", user.getNickName());
 			session.setAttribute("password", user.getPassword());
 			session.setMaxInactiveInterval(60*60*1); //세션 유지 시간 설정
 
@@ -55,6 +56,7 @@ public class LoginController {
 		HttpSession session = req.getSession();
 
 		session.removeAttribute("id");
+		session.removeAttribute("nickName");
 		session.removeAttribute("password");
 
 		session.invalidate();

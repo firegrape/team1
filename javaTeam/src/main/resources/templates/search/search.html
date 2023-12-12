@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/img/minsome_m_favicon.png" rel="icon" type="image/png" sizes="32x32" ><!--파비콘-->
+
+    <meta name="viewport" content="width=1400">
+    <title>MINSOME</title>
+    <!-- 폰트연결 -->
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+
+    <!-- css 연결 -->
+
+    <link rel="stylesheet" href="/css/sub1.css">
+
+
+    <!-- js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><!-- aos 라이브러리 -->
+    <script src="/js/aos.js"></script><!-- aos 소스 -->
+    <script src="/js/sub.js"></script>
+    <script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+    function getSearchList(){
+
+            $.ajax({
+                type: 'GET',
+                url: "/search/getSearchList",
+
+                data: $("form[name=search-form]").serialize(),
+                success: function (result) {
+
+                    //테이블 초기화
+                    $('.card-container').empty();
+                    if (result.length >= 1) {
+                        result.forEach(function (item) {
+                            var card = `
+                               <article class="card">
+            <img class="card-image" src="/img/img.png" alt="카드 이미지">
+            <div class="card-content">
+                <h2 class="card-title">${item.name}</h2>
+            </div>
+                                </article>
+                            `;
+                            $('.card-container').append(card);
+                        })
+                    }
+                }
+            })
+
+    }
+</script>
+    <style>
+        #main_body{
+            min-height: 1000px;
+            margin: auto;
+            width: 1800px;
+
+        }
+        .card-container {
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px; /* 카드 간의 간격 조정 (선택사항) */
+
+        }
+        .card {
+            width: 400px;
+            height: 300px;
+            margin: 10px;
+            border-radius: 20px;
+
+            box-shadow: 0 0 5px #ccc;
+        }
+
+        .card-image {
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+
+            width: 100%;
+            height: 250px;
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="#" class="top"><img src="/img/minsome_m_top.png" alt="top버튼"></a>
+
+<!-- 헤더 -->
+<div th:replace="~{/layout/header :: header-basic}"></div>
+<main id="main_body" class="container mt-5 justify-flex-center">
+
+    <div class="card-container">
+
+    </div>
+</main>
+
+    <form name="search-form" method="get" autocomplete="off">
+        <select name="type">
+            <option selected value="">검색내용 선택</option>
+            <option value="local">구</option>
+            <option value="name">이름</option>
+        </select>
+        <input  type="text" onkeyup="getSearchList()"   name="keyword" id="search_text" value="" placeholder="검색어를 입력하세요.">
+        <input type="button" onclick="getSearchList()" class="btn btn-primary" value="검색">
+    </form>
+
+
+
+
+<div th:replace="~{/layout/footer :: footer-basic}"></div>
+
+
+
+</body>
+
+</html>
