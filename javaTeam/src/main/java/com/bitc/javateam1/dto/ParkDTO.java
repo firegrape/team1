@@ -9,4 +9,7 @@ private int seq;
 private String local;
 private String name;
 private String location;
+
+private String keyword;
+
 }
