@@ -22,16 +22,11 @@
 
     <select id="getSearchList" parameterType="com.bitc.javateam1.dto.ParkDTO" resultType="com.bitc.javateam1.dto.ParkDTO">
         SELECT seq,local,name,location
-        FROM tb_park
+        FROM tb_park WHERE local LIKE CONCAT('%',#{keyword} , '%')
+        or name LIKE CONCAT('%',#{keyword}, '%')
+        or location LIKE CONCAT('%',#{keyword}, '%');
 
-        <choose>
-            <when test="type !=null and type.equals('local')">
-            WHERE    local LIKE CONCAT('%', #{keyword}, '%')
-            </when>
-            <when test="type !=null and type.equals('name')">
-            WHERE    name LIKE CONCAT('%', #{keyword}, '%')
-            </when>
-        </choose>
+
 
     </select>
 </mapper>

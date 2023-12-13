@@ -28,9 +28,8 @@ public String SearchView()throws Exception{
 
 @GetMapping("/getSearchList")
     @ResponseBody
-    public List<ParkDTO>getSearchList(@RequestParam("type")String type, @RequestParam("keyword")String keyword)throws Exception{
+    public List<ParkDTO>getSearchList(@RequestParam("keyword")String keyword)throws Exception{
         ParkDTO parkDTO = new ParkDTO();
-        parkDTO.setType(type);
         parkDTO.setKeyword(keyword);
 
     List<ParkDTO> result = parkService.getSearchList(parkDTO);

@@ -11,5 +11,5 @@ private String name;
 private String location;
 
 private String keyword;
-private String type;
+
 }

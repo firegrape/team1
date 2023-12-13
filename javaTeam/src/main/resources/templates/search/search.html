@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/css/sub1.css">
 
 
+
     <!-- js -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><!-- aos 라이브러리 -->
     <script src="/js/aos.js"></script><!-- aos 소스 -->
@@ -62,6 +63,7 @@
     }
 </script>
     <style>
+
         #main_body{
             min-height: 1000px;
             margin: auto;
@@ -104,6 +106,42 @@
         .card-text {
             font-size: 16px;
         }
+
+        .search {
+
+            margin: 0 auto;
+            padding-top: 50px;
+            position: relative;
+            width: 800px;
+            text-align: center; /* 검색창 내용 정렬을 중앙으로 */
+        }
+
+        input {
+
+            width: 100%;
+            height: 50px;
+            border: 1px solid skyblue;
+            border-radius: 50px;
+            padding: 10px 12px;
+            font-size: 22px;
+            font-style: italic;
+            font-family: 'FontAwesome', sans-serif;
+
+        }
+
+        input:focus
+
+        {outline:2px solid #0085FF;}
+
+        #img {
+            padding-top: 50px;
+            position : absolute;
+            width: 60px;
+            height: 60px;
+            top: 11px;
+            right: 1px;
+
+        }
     </style>
 </head>
 
@@ -114,21 +152,22 @@
 <!-- 헤더 -->
 <div th:replace="~{/layout/header :: header-basic}"></div>
 <main id="main_body" class="container mt-5 justify-flex-center">
+    <div class="search">
+    <form  name="search-form" method="get" autocomplete="off">
+            <input id="input" type="text" name="keyword" placeholder="Search Something">
+        <button type="button" onclick="getSearchList()"><img id="img" src="/img/minsome_person.png"></button>
+
+                </form>
+            </div>
+
+
 
     <div class="card-container">
 
     </div>
 </main>
 
-    <form name="search-form" method="get" autocomplete="off">
-        <select name="type">
-            <option selected value="">검색내용 선택</option>
-            <option value="local">구</option>
-            <option value="name">이름</option>
-        </select>
-        <input  type="text" onkeyup="getSearchList()"   name="keyword" id="search_text" value="" placeholder="검색어를 입력하세요.">
-        <input type="button" onclick="getSearchList()" class="btn btn-primary" value="검색">
-    </form>
+
 
 
 
