@@ -43,7 +43,7 @@ public class LoginController {
 			session.setAttribute("password", user.getPassword());
 			session.setMaxInactiveInterval(60*60*1); //세션 유지 시간 설정
 
-			return "redirect:/hello1";
+			return "redirect:/main/minsome";
 		}
 		else {
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/main")
 public class ParkController {
 
     @Autowired
@@ -23,21 +23,9 @@ public class ParkController {
 
 
 
-    @RequestMapping("hello1")
+    @RequestMapping("/minsome")
     public String viewTest1()throws Exception{
         return "park/parkMain";
     }
 
-    @RequestMapping("park/Detail.do")
-    public ModelAndView mainView()throws Exception{
-        ModelAndView mv = new ModelAndView("park/parkDetail");
-
-        ParkDTO parkList = parkService.selectParkList();
-
-       mv.addObject("parkList", parkList);
-
-
-        return mv;
-
-    }
 }
