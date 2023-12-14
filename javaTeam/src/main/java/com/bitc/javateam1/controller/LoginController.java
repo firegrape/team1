@@ -1,5 +1,8 @@
 package com.bitc.javateam1.controller;
 
+<<<<<<< HEAD
+public class LoginController {
+=======
 import com.bitc.javateam1.dto.MemberDTO;
 import com.bitc.javateam1.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -64,4 +67,5 @@ public class LoginController {
 		return "redirect:/hello1";
 	}
 
+>>>>>>> 05d3e25c984ea18d44f5b35caf6d02fc9ec49106
 }
