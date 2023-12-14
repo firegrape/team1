@@ -64,7 +64,7 @@ MemberService memberService;
 
 		session.invalidate();
 
-		return "redirect:/hello1";
+		return "redirect:/main/minsome";
 	}
 
 }
