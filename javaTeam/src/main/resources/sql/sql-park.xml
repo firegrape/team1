@@ -21,10 +21,30 @@
 </select>
 
     <select id="getSearchList" parameterType="com.bitc.javateam1.dto.ParkDTO" resultType="com.bitc.javateam1.dto.ParkDTO">
-        SELECT seq,local,name,location
-        FROM tb_park WHERE local LIKE CONCAT('%',#{keyword} , '%')
-        or name LIKE CONCAT('%',#{keyword}, '%')
-        or location LIKE CONCAT('%',#{keyword}, '%');
+        SELECT
+        tb_park.seq,
+        local,
+        name,
+        location,
+        SUBSTRING_INDEX(GROUP_CONCAT(tb_park_detail.img_name SEPARATOR ','), ',', 1) AS img_name,
+        img_url
+        FROM
+        tb_park
+        LEFT JOIN
+        tb_park_detail
+        ON
+        tb_park.seq = tb_park_detail.park_idx
+        WHERE
+        local LIKE CONCAT('%',#{keyword}, '%')
+        OR name LIKE CONCAT('%', #{keyword}, '%')
+        OR location LIKE CONCAT('%',#{keyword}, '%')
+        AND tb_park_detail.img_name REGEXP '%1'
+        GROUP BY
+        tb_park.seq,
+        local,
+        name,
+        location,
+        tb_park_detail.img_url;
 
 
 
