@@ -67,6 +67,11 @@ header {
 
 }
 
+
+.p_user{
+    padding-right: 5px;
+    color: #0085FF;
+}
 .nav {
 
     display: -moz-box;
