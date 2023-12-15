@@ -7,6 +7,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -48,8 +49,9 @@ public class BoardController {
 
     //글 입력
     @PostMapping("board/insert")
-    public String boardInsertProcess(BoardDTO board) throws Exception {
-        boardService.insertBoard(board);
+    public String boardInsertProcess(BoardDTO board,  MultipartHttpServletRequest multipart) throws Exception {
+
+        boardService.insertBoard(board, multipart);
 
         return "redirect:/board";
     }

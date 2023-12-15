@@ -21,4 +21,6 @@ public interface BoardMapper {
     Page<BoardDTO> selectPageList()throws Exception;
 
     Page<BoardDTO> postList(int pageNum, String cmId)throws Exception;
+
+    public void insertBoardFileList(List<BoardDTO> fileList) throws Exception;
 }

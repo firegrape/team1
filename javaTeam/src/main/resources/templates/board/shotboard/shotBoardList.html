@@ -16,6 +16,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <div th:replace="~{/layout/header :: header-basic}"></div>
 <main>
     <section>
@@ -36,6 +37,7 @@
                         <th>작성자</th>
                         <th>등록시간</th>
                         <th>조회수</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -44,6 +46,7 @@
                         <td>
                             <a href="/board/" th:href="@{|/board/${item.cmIdx}|}" th:text="${item.title}">제목</a>
                         </td>
+                        <td><img th:src="${item.imgUrl}"> </td>
                         <td th:text="${item.cmNick}">작성자</td>
                         <td th:text="${item.postdate}">등록시간</td>
                         <td th:text="${item.visitCount}">조회수</td>

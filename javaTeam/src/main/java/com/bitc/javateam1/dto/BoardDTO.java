@@ -12,4 +12,6 @@ public class BoardDTO {
     private String postdate;
     private int visitCount;
     private int cmNum;
+    private String imgName;
+    private String imgUrl;
 }
