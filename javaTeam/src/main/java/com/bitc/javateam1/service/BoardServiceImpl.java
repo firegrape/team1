@@ -23,7 +23,7 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public Page<BoardDTO> selectPageList(int pageNum)throws Exception {
 
-        PageHelper.startPage(pageNum, 3);
+        PageHelper.startPage(pageNum, 6);
         return boardMapper.selectPageList();
     }
 

@@ -25,6 +25,7 @@ public class BoardController {
         ModelAndView mv = new ModelAndView("board/shotboard/shotBoardList");
 
         PageInfo<BoardDTO> PageList = new PageInfo<>(boardService.selectPageList(pageNum), 5);
+        System.out.println(PageList);
         mv.addObject("PageList", PageList);
 
         return mv;
