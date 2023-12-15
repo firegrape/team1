@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -25,6 +26,18 @@ public String SearchView()throws Exception{
 }
 
 
+    @RequestMapping("Detail.do")
+    public ModelAndView mainView()throws Exception{
+        ModelAndView mv = new ModelAndView("park/parkDetail");
+
+        ParkDTO parkList = parkService.selectParkList();
+
+        mv.addObject("parkList", parkList);
+
+
+        return mv;
+
+    }
 
 @GetMapping("/getSearchList")
     @ResponseBody

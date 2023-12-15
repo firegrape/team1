@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/sub1.css">
     <link rel="stylesheet" href="/css/mypage/mypage.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script><!-- 수정X -->
 
     <!-- js -->
@@ -107,8 +108,11 @@
 
 <main class="container">
 
+
+    <div th:replace="~{/layout/sidebar :: sidebar-basic}"></div>
     <!--회원정보 수정 폼-->
     <form action=""  method="post">
+
         <!--            <a href="/park/main.do"><img src="/img/minsome_s_person.png" sizes="15" alt="로고"></a>-->
         <!--    <a href="/park/main.do"><img src="/img/minsome_s_person.png" sizes="15" alt="로고"></a>-->
         <!--    <a href="/park/main.do"><img src="/img/minsome_s_person.png" sizes="15" alt="로고"></a>-->
@@ -139,17 +143,9 @@
     </form>
 
 
-    <!-- Sidebar-->
-    <div class="border-end bg-white" id="sidebar-wrapper">
-        <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">회원정보수정</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">관심목록</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">민소매 관리</a>
-        </div>
-        <!--        <div class="sidebar-heading border-bottom bg-light">마이페이지</div>-->
 
 
-    </div>
+
 
 </main>
 

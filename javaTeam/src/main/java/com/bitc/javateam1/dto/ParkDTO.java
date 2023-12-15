@@ -11,5 +11,7 @@ private String name;
 private String location;
 
 private String keyword;
+private String imgUrl;
+private String imgName;
 
 }

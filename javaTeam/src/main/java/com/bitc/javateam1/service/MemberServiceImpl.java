@@ -11,9 +11,9 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
 	@Override
-	public void register(MemberDTO memberDTO) throws Exception{
+	public void Register(MemberDTO memberDTO) throws Exception{
 
-		memberMapper.register(memberDTO);
+		memberMapper.Register(memberDTO);
 	}
 	@Override
 	public int isUserInfo(String id, String password) throws Exception {

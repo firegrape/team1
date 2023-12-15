@@ -1,15 +1,15 @@
 package com.bitc.javateam1.controller;
 
-<<<<<<< HEAD
-public class LoginController {
-=======
+
 import com.bitc.javateam1.dto.MemberDTO;
 import com.bitc.javateam1.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.net.URLEncoder;
 
@@ -17,7 +17,7 @@ import java.net.URLEncoder;
 @RequestMapping("/login")
 public class LoginController {
 @Autowired
-	MemberService memberService;
+MemberService memberService;
 	//    회원가입
 	@RequestMapping("/register")
 	public String join()  {
@@ -46,7 +46,7 @@ public class LoginController {
 			session.setAttribute("password", user.getPassword());
 			session.setMaxInactiveInterval(60*60*1); //세션 유지 시간 설정
 
-			return "redirect:/hello1";
+			return "redirect:/main/minsome";
 		}
 		else {
 
@@ -64,8 +64,7 @@ public class LoginController {
 
 		session.invalidate();
 
-		return "redirect:/hello1";
+		return "redirect:/main/minsome";
 	}
 
->>>>>>> 05d3e25c984ea18d44f5b35caf6d02fc9ec49106
 }

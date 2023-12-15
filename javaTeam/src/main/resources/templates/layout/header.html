@@ -18,6 +18,7 @@
 <body>
 
 <header th:fragment="header-basic">
+
         <div class="header_in">
             <ul class="header_top" th:if="${session.id} == null">
                 <li><a href="/login/login.do">Login</a></li>
@@ -29,13 +30,15 @@
                 <li class="p_user"><p th:text="${session.nickName} +'님'"></p></li>
                 <li class="p_user"><p>반갑습니다.</p></li>
                 <li><a href="/mypage/mypage" th:href="@{/mypage/mypage}">MYPage</a></li>
-                <li><a href="/login/logout.do">Logout</a></li>
+                <li><button id="logout_btn" class="btn_out" type="button">Logout</button></li>
 
 
             </ul>
-            <a href="/hello1" class="_link"><img src="/img/minsome_s_logo.png" sizes="20" alt="로고"></a>
-            <a href="/park/main.do" class="_link"><img src="/img/minsome_s_person.png" sizes="20" alt="로고"></a>
-            <a href="/park/main.do" class="_link"><img src="/img/minsome_s_m.png" sizes="20" alt="로고"></a>
+
+            <a href="/main/minsome" class="_link"><img src="/img/minsome_s_logo.png" sizes="20" alt="로고"></a>
+            <a href="/main/minsome" class="_link"><img src="/img/minsome_s_person.png" sizes="20" alt="로고"></a>
+            <a href="/main/minsome" class="_link"><img src="/img/minsome_s_m.png" sizes="20" alt="로고"></a>
+
             <ul class="nav">
                 <li><a href="#">소개</a>
                     <div class="sub"> <!--배경색-->
@@ -97,6 +100,7 @@
 
             </ul>
         </div>
+
 
 </header>
 </body>
