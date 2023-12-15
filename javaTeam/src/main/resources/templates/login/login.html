@@ -1,0 +1,85 @@
+<!---->
+<!--Created by IntelliJ IDEA.-->
+<!--User: it-->
+<!--Date: 2023-11-07-->
+<!--Time: 오전 10:08-->
+<!--To change this template use File | Settings | File Templates.-->
+<!---->
+<!--<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>-->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>MINSOME</title>
+    <link href="/img/minsome_m_favicon.png" rel="icon" type="image/png" sizes="32x32" ><!--파비콘-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/sub1.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/sub.js"></script>
+    <script src="/js/script.js"></script>
+
+
+    <style>
+
+    </style>
+
+    <script>
+
+    </script>
+
+
+</head>
+<body>
+<div th:replace="~{/layout/header :: header-basic}"></div>
+
+
+<main class="container mt-5">
+    <img id="loginLogo" src="/img/loginLogo.png">
+    <section>
+
+
+        <div class="row">
+            <div class="col-sm-4 mx-auto">
+                <form id="login_form" action="/login/LoginProcess" method="post">
+                    <div class="my-3 form-floating">
+                        <input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력하세요.">
+                        <label for="id">아이디를 입력하세요.</label>
+                    </div>
+                    <div class="my-3 form-floating">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호를 입력하세요.">
+                        <label for="password">비밀번호를 입력하세요.</label>
+                    </div>
+                    <div class="my-3 d-grid">
+                        <button type="submit"  style="background-color: #0085FF" class="btn ">로그인</button>
+                        <!--                        민소매 테마색 : #0085FF-->
+                    </div>
+                    <div class="my-3 d-flex justify-content-end">
+                        <a th:href="@{/login/register}" class="btn btn-link text-info" style="color: #0085FF">회원 가입</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+<div th:replace="~{/layout/footer :: footer}"></div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/sub1.css">
+
+
+    <title>Title</title>
+    <div th:replace="~{/layout/header :: header-basic}"></div>
+    
+    <script>
+        $(document).ready(function () {
+
+            $("#btn-list").on("click", function () {
+                location.href = "/admin";
+            });
+
+            $("#btn-content").on("click", function () {
+                const frm = $("#frm")[0];
+                frm.action = "/admin/userPost";
+                frm.submit();
+            });
+        })
+    </script>
+</head>
+<body>
+<main>
+    <section>
+        <form id="frm" method="post">
+            <div>
+                <div>
+                    <div>
+                        <span class="input-group-text">회원번호</span>
+                        <input type="text" class="form-control" id="user-idx" name="userIdx" readonly th:value="${user.idx}">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-text">회원ID</span>
+                        <input type="text" class="form-control" id="user-id" name="cmId" readonly th:value="${user.id}">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-text">닉네임</span>
+                        <input type="text" class="form-control" id="user-nickName" name="user-nickName" readonly th:value="${user.nickName}">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-text">회원명</span>
+                        <input type="text" class="form-control" id="user-name" name="user-name" readonly th:value="${user.name}">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-text">가입일</span>
+                        <input type="text" class="form-control" readonly th:value="${user.regidate}">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group">
+                        <span class="input-group-text">회원등급</span>
+                        <input type="text" class="form-control" th:value="${user.grade}">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <button type="button" class="btn btn-secondary" id="btn-list">목록</button>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-warning me-2" id="btn-content">회원 작성 목록</button>
+                    <button type="button" class="btn btn-danger" id="btn-delete">회원 탈퇴</button>
+                </div>
+            </div>
+            <input type="hidden" id="method" name="_method">
+        </form>
+    </section>
+</main>
+
+<div th:replace="~{/layout/footer :: footer-basic}"></div>
+</body>
+</html>
