@@ -42,6 +42,19 @@ public class BoardController {
         return mv;
     }
 
+
+    //메이트게시판 목록
+    @GetMapping("mate")
+    public ModelAndView selectMatePagingList(@RequestParam(required = false, defaultValue = "1", value = "pageNum") int pageNum) throws Exception {
+        ModelAndView mv = new ModelAndView("board/mateBoard/mateBoardList");
+
+        PageInfo<BoardDTO> PageList = new PageInfo<>(boardService.mateList(pageNum), 5);
+
+        mv.addObject("PageList", PageList);
+
+        return mv;
+    }
+
     //글 입력 폼
     @GetMapping("board/insert")
     public String boardInsertView() throws Exception {
@@ -57,12 +70,25 @@ public class BoardController {
         return "redirect:/board";
     }
 
-    @RequestMapping("/board/updateBoard.do")
-    public String updateBoard(BoardDTO board) throws Exception {
+    //글 수정 폼
+    @GetMapping("board/update/{cmIdx}")
+    public ModelAndView selectBoardUpdate(@PathVariable("cmIdx") int cmIdx) throws Exception {
+        ModelAndView mv = new ModelAndView("board/shotboard/shotBoardUpdate");
+
+        BoardDTO board = boardService.selectBoardDetail(cmIdx);
+        mv.addObject("board", board);
+
+        return mv;
+    }
+
+    @PostMapping("board/update")
+    public String boardUpdateProcess(BoardDTO board) throws Exception {
+
         boardService.updateBoard(board);
 
         return "redirect:/board";
     }
+
 
     //  게시글 삭제하기
     @RequestMapping("/board/deleteBoard.do")

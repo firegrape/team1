@@ -18,9 +18,9 @@
 
     <insert id="insertBoard" parameterType="com.bitc.javateam1.dto.BoardDTO" useGeneratedKeys="true" keyProperty="cmIdx">
         INSERT INTO
-            tb_comm(cm_id, cm_nick, title, content, postdate, cm_num)
+        tb_comm(cm_id, cm_nick, title, content, postdate, cm_num, level)
         VALUES
-            (#{cmId}, #{cmNick}, #{title}, #{content}, NOW(), #{cmNum})
+        (#{cmId}, #{cmNick}, #{title}, #{content}, NOW(), #{cmNum}, #{level})
     </insert>
 
     <update id="updateBoard" parameterType="com.bitc.javateam1.dto.BoardDTO">
@@ -76,4 +76,16 @@
 
 
     </insert>
+
+
+    <select id="mateList" resultType="com.bitc.javateam1.dto.BoardDTO">
+        SELECT
+        cm_idx, cm_nick, title, level, postdate, visitcount
+        FROM
+        tb_comm
+        WHERE
+        cm_num = 1
+        ORDER BY
+        cm_idx DESC
+    </select>
 </mapper>

@@ -26,4 +26,6 @@ public interface BoardMapper {
     public void insertBoardFileList(List<BoardDTO> fileList) throws Exception;
 
     public void updateHitCount(@Param("cmIdx") int cmIdx) throws Exception;
+
+    Page<BoardDTO> mateList() throws Exception;
 }

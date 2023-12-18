@@ -14,4 +14,5 @@ public class BoardDTO {
     private int cmNum;
     private String imgName;
     private String imgUrl;
+    private String level;
 }
