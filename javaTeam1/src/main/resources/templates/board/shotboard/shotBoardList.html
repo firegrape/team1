@@ -24,13 +24,14 @@
     <section style="width: 1400px">
         <div>
                 <div class="card-container">
+
                     <article class="card " th:if="${#lists.size(PageList.getList())}> 0" th:each="item : ${PageList.getList()}">
-                        <img class="card-image" th:src="${item.imgUrl}"  alt="카드 이미지" onerror="this.src='/img/alt.jpg'">
-                        <div class="card-content">
+                        <a th:href="@{|/board/${item.cmIdx}|}">
+                        <img  class="card-image" th:src="${item.imgUrl}"  alt="카드 이미지" onerror="this.src='/img/alt.jpg'">
+                        <div  class="card-content">
                             <h2 class="card-title" th:text="${item.title}"></h2>
 
-                            <div class="text-content" th:utext="${item.content}"></div>
-                            <p class="mt-2" th:text="${item.postdate}"></p>
+                            <p class="mt-2 me-2 d-flex justify-content-end" th:text="${item.postdate}"></p>
                             <div class="c_nick">
                                 <img class="ms-2 me-1" src="/img/minsome_m.png">
                             <a th:text="by + ${item.cmNick}"> </a>
@@ -39,6 +40,7 @@
                                 <img class="view ms-2 me-1" src="/img/view.png" style="float: right">
                             </div>
                         </div>
+                        </a>
                     </article>
                 </div>
 
