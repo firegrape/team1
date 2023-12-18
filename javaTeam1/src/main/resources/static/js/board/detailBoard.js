@@ -102,7 +102,7 @@ $(document).ready(function () {
         }
         else {
             var view = $("#review_area");
-          
+
             view.empty();
 
         }
