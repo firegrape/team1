@@ -3,6 +3,7 @@ package com.bitc.javateam1.mapper;
 import com.bitc.javateam1.dto.BoardDTO;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface BoardMapper {
     Page<BoardDTO> postList(int pageNum, String cmId)throws Exception;
 
     public void insertBoardFileList(List<BoardDTO> fileList) throws Exception;
+
+    public void updateHitCount(@Param("cmIdx") int cmIdx) throws Exception;
 }

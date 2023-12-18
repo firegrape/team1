@@ -12,31 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/sub1.css">
     <script src="/js/logout.js"></script>
+    <script src="/js/board/detailBoard.js"></script>
     <link rel="stylesheet" href="/css/board/boardDetail.css">
 
-    <script>
-        $(document).ready(function () {
-            // 목록 버튼
-            $("#btn-list").on("click", function () {
-                location.href = "/board";
-            });
-
-            //   수정 버튼
-            $("#btn-update").on("click", function () {
-                const frm = $("#frm")[0];
-                frm.action = "/board/updateBoard.do";
-                frm.submit();
-            });
-
-            //   삭제 버튼
-            $("#btn-delete").on("click", function () {
-                const frm = $("#frm")[0];
-                frm.action = "/board/deleteBoard.do";
-                frm.submit();
-            });
-        });
-    </script>
-    </script>
 
     <title>Title</title>
 </head>
@@ -73,8 +51,10 @@
                 <p class="mt-5" th:text="${board.getContent()}"></p>
             </div>
 
+
+
             <div class="review_btn">
-                <button type="button" class="btn btn-primary" th:text="'댓글(' + ${board.getVisitCount()}+')'"></button>
+                <button type="button" id="view_reply" class="btn btn-primary" th:text="'댓글(' + ${board.getVisitCount()}+')'"></button>
             </div>
 
 
@@ -82,12 +62,20 @@
 
     </section>
     <div class="review_area">
+        <div id="review_area">
+
+        </div>
         <div class="text_area mt-3">
-            <textarea rows="5" style="width: 100%" placeholder="자신의 의견을 간단히 적어주세요."></textarea>
+            <input type="hidden" th:value="${board.getCmIdx()}" id="cmIdx">
+            <textarea rows="5" id="content" name="content" style="width: 100%" placeholder="자신의 의견을 간단히 적어주세요."></textarea>
+            <input type="hidden" th:value="${session.nickName}" id="Nick_input">
             <button style="float: right" type="button" id="btn_review">등록</button>
+
         </div>
 
     </div>
+
+
 </main>
 
 <div th:replace="~{/layout/footer :: footer-basic}"></div>

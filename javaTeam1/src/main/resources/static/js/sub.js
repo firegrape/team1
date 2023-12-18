@@ -1,9 +1,9 @@
 
 $(function(){
-    $('.nav> li').mouseover(function(){
+    $('.a_menu').mouseover(function(){
         $(this).children('.sub').stop().slideDown();
     });
-    $('.nav> li').mouseleave(function(){
+    $('.a_menu').mouseleave(function(){
         $(this).children('.sub').stop().slideUp();
     });
 });

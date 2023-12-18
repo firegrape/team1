@@ -49,6 +49,13 @@
         WHERE cm_num = 0
         ORDER BY tb_comm.cm_idx DESC
     </select>
+
+    <update id="updateHitCount" parameterType="int">
+        UPDATE tb_comm SET visitcount = visitcount + 1
+        WHERE cm_idx = #{cmIdx}
+    </update>
+
+
     <select id="postList"  parameterType="String" resultType="com.bitc.javateam1.dto.BoardDTO">
         SELECT
         cm_id, title, cm_nick, postdate
