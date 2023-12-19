@@ -54,5 +54,10 @@
         WHERE
         idx = #{idx}
     </select>
+
+    <select id="regiCheck" resultType="int" parameterType="com.bitc.javateam1.dto.MemberDTO">
+        select count(*)
+        from tb_login where id = #{id} or nickname = #{nickName};
+    </select>
 </mapper>
 

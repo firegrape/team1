@@ -37,6 +37,8 @@ body {
     color: #fff;
 }
 
+
+
 .top {
 
     position: fixed;
@@ -295,7 +297,7 @@ section p {
 }
 
 h4 {
-    color: #00B2BC;
+
     font-size: 30px;
     margin-bottom: 30px;
 }
@@ -524,14 +526,7 @@ h4 {
     text-align: left;
 }
 
-.subban2{
-    width: 100%;
-   height: 400px;
-   margin: 150px 0;
-    background: url(./img/sub/sub_banner02.png) no-repeat center;
-    background-size: cover;
-    text-align: center;
-}
+
 
 .subban2 h1{
     padding: 130px 0 0;
@@ -548,18 +543,6 @@ h4 {
     padding: 50px 0 0;
 }
 
-.sub_hotel{
-    margin: auto;
-    width: 1320px;
-    height: 700px;
-    background: url(./img/sub/sub_hotel.jpg) no-repeat left;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .hotelbox{
     padding:0 60px;
@@ -716,13 +699,6 @@ border-radius: 20px;
     right: 60px;
 }
 
-
-.sub2_gallery .swiper-button-prev:after{
-	background: url(./img/sub/tourbot-1.png);
-}
-.sub2_gallery .swiper-button-next:after{
-	background: url(./img/sub/tourbot-2.png);
-}
 
 
 

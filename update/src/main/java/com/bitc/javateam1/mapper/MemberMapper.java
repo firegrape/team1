@@ -18,4 +18,6 @@ public interface MemberMapper {
 	Page<MemberDTO> userList()throws Exception;
 
 	MemberDTO userDetail(int idx)throws Exception;
+
+	int regiCheck(MemberDTO memberDTO)throws Exception;
 }

@@ -29,11 +29,15 @@ MemberService memberService;
 	}
 
 	@PostMapping("/registerProcess")
-	public String joinProcess(MemberDTO memberDTO) throws Exception{
+	public void joinProcess(MemberDTO memberDTO, HttpServletResponse res) throws Exception{
+		int result = memberService.regiCheck(memberDTO);
+		if(result<1) {
 
-		memberService.Register(memberDTO);
-
-		return "redirect:/main/minsome";
+			memberService.Register(memberDTO);
+			JSFunction.alertLocation("회원 가입에 성공하였습니다","/login/login.do",res);
+		}else {
+			JSFunction.alertBack("아이디 혹은 닉네임이 중복입니다.", res);
+		}
 	}
 //로그인
 
@@ -59,7 +63,7 @@ MemberService memberService;
 			session.setMaxInactiveInterval(60 * 60 * 1); //세션 유지 시간 설정
 
 			if(session.getAttribute("grade").equals(1)){
-				JSFunction.alertLocation("마스터님 반갑습니다", "/master", res);
+				JSFunction.alertLocation("마스터님 반갑습니다", "/admin", res);
 			}else{
 				JSFunction.alertLocation(session.getAttribute("nickName")+"님 반갑습니다" ,"/main/minsome",res);
 			}

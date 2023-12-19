@@ -15,4 +15,15 @@ public class MyPageController {
 
         return "mypage/mypage";
     }
+
+    @RequestMapping("/delete")
+    public String MyPageDelete()throws Exception{
+        return "mypage/delete";
+    }
+
+    @RequestMapping("/deleteProcess")
+    public String memeberOut()throws Exception{
+
+    
+    }
 }

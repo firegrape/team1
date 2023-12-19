@@ -8,4 +8,6 @@ public interface MemberService {
  public int isUserInfo(String id, String password) throws Exception;
 
 public MemberDTO getUserInfo(String id) throws Exception;
+
+ int regiCheck(MemberDTO memberDTO)throws Exception;
 }

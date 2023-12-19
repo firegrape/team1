@@ -25,4 +25,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.getUserInfo(id);
 	}
 
+	@Override
+	public int regiCheck(MemberDTO memberDTO)throws Exception {
+		return memberMapper.regiCheck(memberDTO);
+	}
+
+
 }

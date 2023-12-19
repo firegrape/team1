@@ -31,17 +31,25 @@
         $(document).ready(function () {
 
             $("#btn-update").on("click", function () {
-                const frm = $("#frm")[0];
-                var file = $("#file").val();
+              var  sel1 = $("#selectBoard").val();
+               var sel2 = $("#selectLevel").val();
 
-                if(file==null) {
+               if(sel1 === "null" || sel2 === "null") {
+                   alert("필수 선택사항을 지정해주세요!!");
 
-                    frm.action = "/board/update";
-                    frm.submit();
-                }else{
-                    frm.action= "/board/image/update";
-                    frm.submit();
-                }
+               }else{
+                   const frm = $("#frm")[0];
+                   var file = $("#file").val();
+
+                   if (file == null) {
+
+                       frm.action = "/board/update";
+                       frm.submit();
+                   } else {
+                       frm.action = "/board/image/update";
+                       frm.submit();
+                   }
+               }
             });
 
             $("#btn-delete").on("click", function () {

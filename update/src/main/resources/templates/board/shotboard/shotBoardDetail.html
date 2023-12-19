@@ -69,14 +69,14 @@ $(document).ready(function (){
         </div>
 
             <div class="mb-2" th:if="${board.getCmNum()}==0">
-                <a class="a_board" href="/board">인증게시판</a>
+                <a style="font-weight: bolder" class="a_board" href="/board">인증게시판</a>
 
 
             </div>
             <div class="mb-2" th:unless="${board.getCmNum()}==0">
-                <a class="a_board" href="/mate">민소메이트</a>
-
+                <a style="font-weight: bolder"   class="a_board" href="/mate">민소메이트</a>
             </div>
+        <br>
             <div class="inform">
                 <p th:text="${board.getTitle()}"></p>
                 <img class="ms-2 me-1" src="/img/boardImg.png">
