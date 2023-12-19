@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>MINSOME</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/img/minsome_m_favicon.png" rel="icon" type="image/png" sizes="32x32"><!--파비콘-->
+
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- css 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/css/sub1.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><!-- aos 라이브러리 -->
+    <script src="/js/aos.js"></script><!-- aos 소스 -->
+    <script src="/js/sub.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/logout.js"></script>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        .mySlides1, .mySlides2 {
+            display: none
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 500px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a grey background color */
+        .prev:hover, .next:hover {
+            background-color: white;
+            color: #4e8cff;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/layout/header :: header-basic}"></div>
+<!--런린이 - 주니어 -민소매-->
+<h2 style="text-align:center">아이템</h2>
+
+<h3>런린이를 위한<br>러닝화</h3>
+<div class="slideshow-container">
+    <div class="mySlides1">
+        <img src="/img/런린이/나이키_윈플로.png" style="width:50%">
+    </div>
+
+    <div class="mySlides1">
+        <img src="/img/런린이/나이키_페가수스.png" style="width:50%">
+    </div>
+
+    <div class="mySlides1">
+        <img src="/img/런린이/뉴발란스_퓨어셀_레벨.png" style="width:50%">
+    </div>
+    <div class="mySlides1">
+        <img src="/img/런린이/미즈노_웨이브.png" style="width:50%">
+    </div>
+    <div class="mySlides1">
+        <img src="/img/런린이/아식스_젤님버스.png" style="width:50%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+
+<h3>주니어를 위한<br>러닝화</h3>
+<div class="slideshow-container">
+    <div class="mySlides2">
+        <img src="/img/주니어/나이키_보메로.png" style="width:100%">
+    </div>
+
+    <div class="mySlides2">
+        <img src="/img/주니어/나이키_인피티니런.png" style="width:100%">
+    </div>
+
+    <div class="mySlides2">
+        <img src="/img/주니어/나이키_줌플라이.png" style="width:100%">
+    </div>
+    <div class="mySlides2">
+        <img src="/img/주니어/써코니_엔돌핀_프로.png" style="width:100%">
+    </div>
+    <div class="mySlides2">
+        <img src="/img/주니어/아디다스_아디제로_프라임.png" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+</div>
+
+<h3>민소매를 위한<br>러닝화</h3>
+<div class="slideshow-container">
+    <div class="mySlides3">
+        <img src="/img/민소매/나이키_베이퍼플라이.png" style="width:100%">
+    </div>
+
+    <div class="mySlides3">
+        <img src="/img/민소매/나이키_알파플라이.png" style="width:100%">
+    </div>
+
+    <div class="mySlides3">
+        <img src="/img/민소매/뉴발란스_퓨어셀_엘리트.png" style="width:100%">
+    </div>
+    <div class="mySlides3">
+        <img src="/img/민소매/아디다스_아디제로_프로.png" style="width:100%">
+    </div>
+    <div class="mySlides3">
+        <img src="/img/민소매/아식스_메타스피드_스카이플러스.png" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+</div>
+
+    <script>
+        let slideIndex = [1, 1, 1];
+        let slideId = ["mySlides1", "mySlides2", "mySlides3"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+        showSlides(1, 2);
+
+
+        function plusSlides(n, no) {
+            showSlides(slideIndex[no] += n, no);
+        }
+
+        function showSlides(n, no) {
+            let i;
+            let x = document.getElementsByClassName(slideId[no]);
+            if (n > x.length) {
+                slideIndex[no] = 1
+            }
+            if (n < 1) {
+                slideIndex[no] = x.length
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex[no] - 1].style.display = "block";
+        }
+    </script>
+    <div th:replace="~{/layout/footer :: footer-basic}"></div>
+
+</body>
+</html>

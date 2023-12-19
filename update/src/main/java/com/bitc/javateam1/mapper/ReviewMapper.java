@@ -16,4 +16,6 @@ public interface ReviewMapper {
     void DeleteReview(int rno)throws Exception;
 
     ReviewDTO SelectReviewRno(@Param("rno") int rno)throws Exception;
+
+    void DeleteallBoard(int cmIdx)throws Exception;
 }

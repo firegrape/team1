@@ -1,9 +1,14 @@
 package com.bitc.javateam1.controller;
 
+import com.bitc.javateam1.Utils.JSFunction;
 import com.bitc.javateam1.dto.BoardDTO;
 import com.bitc.javateam1.dto.ParkDTO;
 import com.bitc.javateam1.service.BoardService;
+import com.bitc.javateam1.service.ReviewService;
 import com.github.pagehelper.PageInfo;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +23,8 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private ReviewService reviewService;
 
     //글 목록
     @GetMapping("board")
@@ -82,17 +89,35 @@ public class BoardController {
     }
 
     @PostMapping("board/update")
-    public String boardUpdateProcess(BoardDTO board) throws Exception {
+    public void boardUpdateProcess(BoardDTO board, HttpServletRequest req, HttpServletResponse res) throws Exception {
+        int cmIdx = board.getCmIdx();
 
-        boardService.updateBoard(board);
+        HttpSession session = req.getSession();
+        BoardDTO boardDTO = boardService.selectBoardDetail(cmIdx);
+        String nickName = boardDTO.getCmNick();
+        String curNickname = (String) session.getAttribute("nickName");
 
-        return "redirect:/board";
+                if(board.getCmNum()==0) {
+                    boardService.updatePost(board);
+                    JSFunction.alertLocation("게시글 수정이 완료되었습니다","/board",res);
+                }else{
+                    boardService.updatePost(board);
+                    JSFunction.alertLocation("게시글 수정이 완료되었습니다","/mate",res);
+
+        }
+
+
+
+
+
     }
 
 
     //  게시글 삭제하기
     @RequestMapping("/board/deleteBoard.do")
     public String deleteBoard(@RequestParam("cmIdx") int cmIdx) throws Exception {
+        reviewService.DeleteallBoard(cmIdx);
+
         boardService.deleteBoard(cmIdx);
 
         return "redirect:/board";

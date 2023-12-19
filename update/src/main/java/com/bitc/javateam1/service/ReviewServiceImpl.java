@@ -31,4 +31,9 @@ public class ReviewServiceImpl implements ReviewService {
     public ReviewDTO SelectReviewRno(int rno) throws Exception {
         return reviewMapper.SelectReviewRno(rno);
     }
+
+    @Override
+    public void DeleteallBoard(int cmIdx) throws Exception {
+        reviewMapper.DeleteallBoard(cmIdx);
+    }
 }

@@ -13,9 +13,11 @@ public interface BoardService {
 
     void deleteBoard(int cmIdx)throws Exception;
 
-    void updateBoard(BoardDTO board)throws Exception;
+
 
     void insertBoard(BoardDTO board, MultipartHttpServletRequest multipart)throws Exception;
 
     Page<BoardDTO> mateList(int pageNum) throws Exception;
+
+    void updatePost(BoardDTO board)throws Exception;
 }

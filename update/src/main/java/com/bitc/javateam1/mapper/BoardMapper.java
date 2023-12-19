@@ -15,7 +15,7 @@ public interface BoardMapper {
 
     void insertBoard(BoardDTO board)throws Exception;
 
-    void updateBoard(BoardDTO board)throws Exception;
+
 
     void deleteBoard(int cmIdx)throws Exception;
 
@@ -28,4 +28,8 @@ public interface BoardMapper {
     public void updateHitCount(@Param("cmIdx") int cmIdx) throws Exception;
 
     Page<BoardDTO> mateList() throws Exception;
+
+    void updatePost(BoardDTO board)throws Exception;
+
+    void deleteImg(int cmIdx)throws Exception;
 }

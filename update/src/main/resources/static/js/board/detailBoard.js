@@ -77,7 +77,7 @@ $(document).ready(function () {
     </span>
   </div>
   <p>${data[i].content}</p>
-  <p>${data[i].reDate}</p>
+  <p class="re_date" style="float:right;">${data[i].reDate}</p>
 </div>`
                         view.append(text);
                     }

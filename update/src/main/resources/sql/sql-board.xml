@@ -8,13 +8,18 @@
 
     <select id="selectBoardDetail" resultType="com.bitc.javateam1.dto.BoardDTO">
         SELECT
-        tb_comm.cm_idx, cm_nick, title, content, postdate, visitcount ,img_url,img_name ,(select count(*) from tb_reply where comm_idx = tb_comm.cm_idx) as reviewCount
+        tb_comm.cm_idx,cm_num, cm_nick, title, content, postdate, visitcount ,img_url,img_name ,(select count(*) from tb_reply where comm_idx = tb_comm.cm_idx) as reviewCount
         FROM
         tb_comm left join tb_comm_img
         on tb_comm.cm_idx = tb_comm_img.cm_idx
         WHERE
         tb_comm.cm_idx = #{cmIdx};
     </select>
+
+    <delete id="deleteImg" parameterType="int">
+        DELETE FROM tb_comm_img
+        where cm_idx = #{cmIdx};
+    </delete>
 
     <insert id="insertBoard" parameterType="com.bitc.javateam1.dto.BoardDTO" useGeneratedKeys="true" keyProperty="cmIdx">
         INSERT INTO
@@ -23,15 +28,18 @@
         (#{cmId}, #{cmNick}, #{title}, #{content}, NOW(), #{cmNum}, #{level})
     </insert>
 
-    <update id="updateBoard" parameterType="com.bitc.javateam1.dto.BoardDTO">
-        UPDATE
-            tb_comm
-        SET
-            title = #{title},
-            content = #{content}
-        WHERE
-            cm_idx = #{cmIdx}
-    </update>
+ <update id="updatePost" parameterType="com.bitc.javateam1.dto.BoardDTO">
+     UPDATE
+     tb_comm
+     SET
+     level = #{level},
+     cm_num = #{cmNum},
+     title = #{title},
+     content = #{content}
+     WHERE
+     cm_idx = #{cmIdx}
+
+ </update>
 
     <delete id="deleteBoard">
         DELETE FROM
@@ -80,7 +88,7 @@
 
     <select id="mateList" resultType="com.bitc.javateam1.dto.BoardDTO">
         SELECT
-        cm_idx, cm_nick, title, level, postdate, visitcount
+        cm_num, cm_idx, cm_nick, title, level, postdate, visitcount
         FROM
         tb_comm
         WHERE

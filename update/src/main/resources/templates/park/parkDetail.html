@@ -33,7 +33,7 @@
 <body>
 <a href="#" class="top"><img src="/img/minsome_m_top.png" alt="top버튼"></a>
 <div th:replace="~{/layout/header :: header-basic}"></div>
-<div class="form_div">
+<div class="form_div pb-5">
 <!--<div>-->
 <!--    &lt;!&ndash;공원사진 1,2,3 + 좌우 전환&ndash;&gt;-->
 <!--    <div class="w3-content w3-display-container">-->
@@ -81,8 +81,8 @@
     <br>
     <br>
     <h5 th:text="${parkList.getContent()}"></h5>
-    <div><img class="add_img" src="/img/addr.png"></div>
-    <div id="map" style="width:1000px; height: 700px;"></div>
+    <div><img class="add_img" src="/img/pin2.png"></div>
+    <div id="map" class="mb-4" style="width:1000px; height: 600px;"></div>
 
 </div>
 

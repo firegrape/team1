@@ -3,6 +3,7 @@ package com.bitc.javateam1.service;
 import com.bitc.javateam1.common.FileUtils;
 import com.bitc.javateam1.dto.BoardDTO;
 import com.bitc.javateam1.mapper.BoardMapper;
+import com.bitc.javateam1.mapper.ReviewMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     private FileUtils fileUtils;
 
+    @Autowired
+    private ReviewMapper reviewMapper;
+
     @Override
     public Page<BoardDTO> selectPageList(int pageNum)throws Exception {
 
@@ -36,21 +40,25 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void deleteBoard(int cmIdx)throws Exception {
+        boardMapper.deleteImg(cmIdx);
+
         boardMapper.deleteBoard(cmIdx);
 
     }
 
-    @Override
-    public void updateBoard(BoardDTO board)throws Exception{
-        boardMapper.updateBoard(board);
 
-    }
 
     @Override
     public Page<BoardDTO> mateList(int pageNum) throws Exception {
         PageHelper.startPage(pageNum, 6);
         return boardMapper.mateList();
     }
+
+    @Override
+    public void updatePost(BoardDTO board) throws Exception {
+        boardMapper.updatePost(board);
+    }
+
     @Override
     public void insertBoard(BoardDTO board, MultipartHttpServletRequest multipart)throws Exception {
         boardMapper.insertBoard(board);

@@ -29,4 +29,10 @@
         DELETE FROM tb_reply
         WHERE rno = #{rno};
     </delete>
+
+
+    <delete id="DeleteallBoard" parameterType="int">
+        DELETE from tb_reply
+        where comm_idx = #{cmIdx}
+    </delete>
 </mapper>
