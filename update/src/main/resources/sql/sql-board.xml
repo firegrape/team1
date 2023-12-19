@@ -21,6 +21,8 @@
         where cm_idx = #{cmIdx};
     </delete>
 
+
+
     <insert id="insertBoard" parameterType="com.bitc.javateam1.dto.BoardDTO" useGeneratedKeys="true" keyProperty="cmIdx">
         INSERT INTO
         tb_comm(cm_id, cm_nick, title, content, postdate, cm_num, level)
@@ -84,6 +86,7 @@
 
 
     </insert>
+
 
 
     <select id="mateList" resultType="com.bitc.javateam1.dto.BoardDTO">

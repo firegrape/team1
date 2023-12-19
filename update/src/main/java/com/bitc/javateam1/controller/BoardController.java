@@ -90,12 +90,8 @@ public class BoardController {
 
     @PostMapping("board/update")
     public void boardUpdateProcess(BoardDTO board, HttpServletRequest req, HttpServletResponse res) throws Exception {
-        int cmIdx = board.getCmIdx();
 
-        HttpSession session = req.getSession();
-        BoardDTO boardDTO = boardService.selectBoardDetail(cmIdx);
-        String nickName = boardDTO.getCmNick();
-        String curNickname = (String) session.getAttribute("nickName");
+
 
                 if(board.getCmNum()==0) {
                     boardService.updatePost(board);
@@ -107,10 +103,26 @@ public class BoardController {
         }
 
 
+    }
 
+    @PostMapping("/board/image/update")
+    public void boardImageUpdateProcess(BoardDTO board, MultipartHttpServletRequest multipart, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
+
+
+        if(board.getCmNum()==0) {
+
+            boardService.updatePostImg(board,multipart);
+            JSFunction.alertLocation("게시글 수정이 완료되었습니다","/board",res);
+        }else{
+            boardService.updatePostImg(board,multipart);
+            JSFunction.alertLocation("게시글 수정이 완료되었습니다","/mate",res);
+
+        }
 
 
     }
+
 
 
     //  게시글 삭제하기

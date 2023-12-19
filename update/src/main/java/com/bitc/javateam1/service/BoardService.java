@@ -20,4 +20,6 @@ public interface BoardService {
     Page<BoardDTO> mateList(int pageNum) throws Exception;
 
     void updatePost(BoardDTO board)throws Exception;
+
+    void updatePostImg(BoardDTO board, MultipartHttpServletRequest multipart)throws Exception;
 }

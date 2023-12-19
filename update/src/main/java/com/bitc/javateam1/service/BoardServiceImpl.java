@@ -60,6 +60,20 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public void updatePostImg(BoardDTO board, MultipartHttpServletRequest multipart) throws Exception {
+        boardMapper.deleteImg(board.getCmIdx());
+        List<BoardDTO> fileList = fileUtils.parseFileInfo(board.getCmIdx(), multipart);
+
+        //CollectionUtils: 스프링 프레임워크에서 제공하는 컬렉션 타입의 객체를 활용할 수 있는 클래스
+        if (CollectionUtils.isEmpty(fileList) == false) {
+            boardMapper.insertBoardFileList(fileList);
+        }
+
+
+        boardMapper.updatePost(board);
+    }
+
+    @Override
     public void insertBoard(BoardDTO board, MultipartHttpServletRequest multipart)throws Exception {
         boardMapper.insertBoard(board);
 

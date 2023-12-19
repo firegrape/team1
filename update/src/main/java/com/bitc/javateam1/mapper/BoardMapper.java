@@ -31,5 +31,7 @@ public interface BoardMapper {
 
     void updatePost(BoardDTO board)throws Exception;
 
+    void  deleteFile(int cmIdx)throws Exception;
+
     void deleteImg(int cmIdx)throws Exception;
 }
