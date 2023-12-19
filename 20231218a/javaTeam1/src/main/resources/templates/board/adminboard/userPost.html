@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>관리자</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/sub1.css">
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+    <script src="/js/sub.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            color: #04AA6D;
+        }
+        table.table-bordered th, table.table-bordered td {
+
+            border: 1px solid #04AA6D;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{/layout/header :: header-basic}"></div>
+<main>
+    <section>
+        <div>
+            <div>
+                <table class="table mt-5 table-bordered"> <!-- Bootstrap 테이블 클래스 추가 -->
+                    <colgroup>
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                    </colgroup>
+                    <thead class="thead-dark"> <!-- Bootstrap 다크 테이블 헤더 클래스 추가 -->
+                    <tr>
+                        <th>ID</th>
+                        <th>제목</th>
+                        <th>작성일자</th>
+                        <th>닉네임</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${#lists.size(PageList.getList())} > 0" th:each="item : ${PageList.getList()}">
+                        <td th:text="${item.cmId}">ID</td>
+                        <td th:text="${item.title}">제목</td>
+                        <td th:text="${item.postdate}">작성일자</td>
+                        <td th:text="${item.cmNick}">닉네임</td>
+                    </tr>
+                    <tr th:unless="${#lists.size(PageList.getList())} > 0">
+                        <td colspan="4">조회된 내용이 없습니다.</td> <!-- 셀 병합 수를 4로 수정 -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="mt-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" th:classappend="${PageList.getPrePage() == 0} ? 'disabled'">
+                    <a class="page-link" href="#" th:href="@{/admin/userPost(pageNum=${PageList.getPrePage()})}">&laquo;</a>
+                </li>
+                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()} ? 'active'">
+                    <a class="page-link" href="#" th:href="@{/admin/userPost(pageNum=${page})}" th:text="${page}"></a> <!-- 수정 -->
+                </li>
+                <li class="page-item" th:classappend="${PageList.getNextPage() == 0} ? 'disabled'">
+                    <a class="page-link" href="#" th:href="@{/admin/userPost(pageNum=${PageList.getNextPage()})}">&raquo;</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>
+<div th:replace="~{/layout/header :: header-basic}"></div>
+</body>
+</html>
