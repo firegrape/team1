@@ -33,10 +33,10 @@
                 <button type="button" class="btn btn-primary">수정</button>
             </div>
             <div class="mb-2" th:if="${board.getCmNum()}==0">
-                <a class="a_board" href="board/">인증게시판</a>
+                <a class="a_board" href="/board">인증게시판</a>
             </div>
             <div class="mb-2" th:unless="${board.getCmNum()}==0">
-                <a class="a_board" href="board">런닝메이트</a>
+                <a class="a_board" href="/mate">런닝메이트</a>
             </div>
             <div class="inform">
                 <p th:text="${board.getTitle()}"></p>

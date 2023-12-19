@@ -35,6 +35,13 @@
                 frm.action = "/board/update";
                 frm.submit();
             });
+
+            $("#btn-delete").on("click", function () {
+                alert("삭제 하시겠습니까?")
+                const frm = $("#frm")[0];
+                frm.action = "/board/deleteBoard.do";
+                frm.submit();
+            });
         })
     </script>
 </head>
@@ -99,6 +106,7 @@
 
             <div class="d-flex justify-content-end mt-4">
                 <button type="button" id="btn-cancel" class="btn btn-secondary me-2">취소</button>
+                <button type="button" id="btn-delete" class="btn btn-danger me-2">삭제</button>
                 <button type="button" id="btn-update" class="btn btn-primary">수정</button>
 
             </div>

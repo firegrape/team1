@@ -17,7 +17,7 @@ public class AdminServiceImpl implements AdminService {
     BoardMapper boardMapper;
     @Override
     public Page<MemberDTO> userList(int pageNum) throws Exception {
-        PageHelper.startPage(pageNum, 3);
+        PageHelper.startPage(pageNum, 5);
         return memberMapper.userList();
     }
 
