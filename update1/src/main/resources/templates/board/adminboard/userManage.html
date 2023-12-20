@@ -33,6 +33,17 @@
                 frm.action = "/admin/userPost";
                 frm.submit();
             });
+
+            $("#btn-delete").on("click", function () {
+                if(confirm("정말로 탈퇴시키겠습니까?")) {
+                    const frm = $("#frm")[0];
+                    frm.action = "/admin/delete";
+                    frm.submit();
+                }else{
+
+                }
+
+            })
         })
     </script>
     <style>
@@ -171,7 +182,7 @@
                 <div>
                     <div class="input-group">
                         <span class="input-group-text">닉네임</span>
-                        <input type="text" class="form-control" id="user-nickName" name="user-nickName" readonly th:value="${user.nickName}">
+                        <input type="text" class="form-control" id="nickname" name="nickname" readonly th:value="${user.nickName}">
                     </div>
                 </div>
                 <div>

@@ -96,9 +96,10 @@
                     <colgroup>
                         <col style="width: 10%">
                         <col style="width: 40%">
-                        <col style="width: 15%">
-                        <col style="width: 15%">
-                        <col style="width: 15%">
+                        <col style="width: 10%">
+                        <col style="width: 17%">
+                        <col style="width: 13%">
+                        <col style="width: 10%">
 
                     </colgroup>
                     <thead> <!-- Bootstrap 다크 테이블 헤더 클래스 추가 -->
@@ -108,7 +109,7 @@
                         <th>회원ID</th>
                         <th>닉네임</th>
                         <th>작성일</th>
-
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -118,6 +119,10 @@
                         <td th:text="${item.cmId}">ID</td>
                         <td th:text="${item.cmNick}">닉네임</td>
                         <td th:text="${item.postdate}">작성일</td>
+                        <td>
+                            <a type="button"
+                               th:href="|/board/deleteBoard/${item.cmIdx}|" class="btn btn-danger" style="font-size: 14px;">삭제</a>
+                        </td>
                     </tr>
                     <tr th:unless="${#lists.size(PageList.getList())} > 0">
                         <td colspan="4">조회된 내용이 없습니다.</td> <!-- 셀 병합 수를 4로 수정 -->

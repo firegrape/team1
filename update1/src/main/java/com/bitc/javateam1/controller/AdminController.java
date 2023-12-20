@@ -1,11 +1,14 @@
 package com.bitc.javateam1.controller;
 
+import com.bitc.javateam1.Utils.JSFunction;
 import com.bitc.javateam1.dto.BoardDTO;
 import com.bitc.javateam1.dto.MemberDTO;
 import com.bitc.javateam1.service.AdminService;
 import com.bitc.javateam1.service.BoardService;
 import com.bitc.javateam1.service.MemberService;
+import com.bitc.javateam1.service.ReviewService;
 import com.github.pagehelper.PageInfo;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +20,12 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private ReviewService reviewService;
+    @Autowired
+    private BoardService boardService;
+    @Autowired
+    private MemberService memberService;
 
     //회원 목록
     @GetMapping("admin")
@@ -57,5 +66,17 @@ public class AdminController {
 
 
         return mv;
+    }
+
+    //관리자 페이지 회원탈퇴
+    @RequestMapping("admin/delete")
+    public void memberKill(@RequestParam("nickname") String nick,HttpServletResponse res) throws Exception {
+
+        reviewService.DeleteNick(nick);
+        boardService.MemberDelImg(nick);
+        boardService.MemberDelComm(nick);
+        memberService.memberDel(nick);
+
+        JSFunction.alertLocation("회원탈퇴가 완료되었습니다.","/admin", res);
     }
 }

@@ -129,14 +129,16 @@ public class BoardController {
 
 
 
+
     //  게시글 삭제하기
-    @RequestMapping("/board/deleteBoard.do")
-    public String deleteBoard(@RequestParam("cmIdx") int cmIdx) throws Exception {
+    @GetMapping("board/deleteBoard/{cmIdx}")
+    public void AdCommDel(@PathVariable("cmIdx") int cmIdx,HttpServletRequest req, HttpServletResponse res) throws Exception {
         reviewService.DeleteallBoard(cmIdx);
 
         boardService.deleteBoard(cmIdx);
 
-        return "redirect:/board";
+
+        JSFunction.alertLocation("삭제가 완료되었습니다","/admin", res);
     }
 
 
