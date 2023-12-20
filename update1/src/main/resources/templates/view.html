@@ -5,7 +5,7 @@
     <title>MINSOME</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/img/minsome_m_favicon.png" rel="icon" type="image/png" sizes="32x32"><!--파비콘-->
+    <link href="/img/minsome_m_favicon.png" rel="icon" type="image/png" sizes="32x32" ><!--파비콘-->
 
     <script
             src="https://code.jquery.com/jquery-3.7.1.js"
@@ -71,82 +71,146 @@
             background-color: white;
             color: #4e8cff;
         }
+        .main_div {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main_div img {
+
+       margin: 0 auto;
+        }
+
+        .main_div h3 {
+        }
+        .gif_area {
+            width: 100%;
+            background-color: #F8E4FF;
+            color: black;
+        }
+        .gif_area img{
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 <div th:replace="~{/layout/header :: header-basic}"></div>
 <!--런린이 - 주니어 -민소매-->
-<h2 style="text-align:center">아이템</h2>
 
-<h3>런린이를 위한<br>러닝화</h3>
-<div class="slideshow-container">
-    <div class="mySlides1">
-        <img src="/img/런린이/나이키_윈플로.png" style="width:50%">
-    </div>
+<div class="gif_area">
+    <img src="/img/itemMain/itemMaingif3.gif">
+    <br>
+    <h2 style="text-align: center">Ready, Set, Find</h2>
+    <br>
+    <h3 style="text-align: center">나의 체형과 운동목적에 딱 맞는 운동화를 찾아보세요.</h3>
+    <h4 class="" style="text-align:center">민소매가 추천해요</h4>
+    <br>
+</div>
+<br>
+<br>
+<div class="main_div">
+    <div class="col-md-10" style="display: flex; align-items: center;">
+        <img src="/img/itemMain/step1.jpg" class="img-responsive" style="width: 50%;">
+        <div style="flex: 1; padding-left: 20px;">
+            <div class="slideshow-container">
+                <div class="mySlides1">
+                    <h3>런린이를 위한 러닝화</h3>
+                    <img src="/img/런린이/나이키_윈플로.png" style="width:100%">
+                </div>
 
-    <div class="mySlides1">
-        <img src="/img/런린이/나이키_페가수스.png" style="width:50%">
-    </div>
+                <div class="mySlides1">
+                    <h3>런린이를 위한 러닝화</h3>
+                    <img src="/img/런린이/나이키_페가수스.png" style="width:100%">
+                </div>
 
-    <div class="mySlides1">
-        <img src="/img/런린이/뉴발란스_퓨어셀_레벨.png" style="width:50%">
+                <div class="mySlides1">
+                    <h3>런린이를 위한 러닝화</h3>
+                    <img src="/img/런린이/뉴발란스_퓨어셀_레벨.png" style="width:100%">
+                </div>
+                <div class="mySlides1">
+                    <h3>런린이를 위한 러닝화</h3>
+                    <img src="/img/런린이/미즈노_웨이브.png" style="width:100%">
+                </div>
+                <div class="mySlides1">
+                    <h3>런린이를 위한 러닝화</h3>
+                    <img src="/img/런린이/아식스_젤님버스.png" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+            </div>
+        </div>
     </div>
-    <div class="mySlides1">
-        <img src="/img/런린이/미즈노_웨이브.png" style="width:50%">
-    </div>
-    <div class="mySlides1">
-        <img src="/img/런린이/아식스_젤님버스.png" style="width:50%">
-    </div>
-    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
 </div>
 
-<h3>주니어를 위한<br>러닝화</h3>
-<div class="slideshow-container">
-    <div class="mySlides2">
-        <img src="/img/주니어/나이키_보메로.png" style="width:100%">
-    </div>
 
-    <div class="mySlides2">
-        <img src="/img/주니어/나이키_인피티니런.png" style="width:100%">
-    </div>
 
-    <div class="mySlides2">
-        <img src="/img/주니어/나이키_줌플라이.png" style="width:100%">
-    </div>
-    <div class="mySlides2">
-        <img src="/img/주니어/써코니_엔돌핀_프로.png" style="width:100%">
-    </div>
-    <div class="mySlides2">
-        <img src="/img/주니어/아디다스_아디제로_프라임.png" style="width:100%">
-    </div>
+<div class="main_div" style="padding: 100px; display: flex; align-items: center; flex-direction: row-reverse;">
+    <img src="/img/itemMain/step2.jpg" style="width: 50%;">
+    <div style="flex: 1; padding-right: 20px;">
+        <div class="slideshow-container">
+            <div class="mySlides2">
+                <h3>주니어를 위한 러닝화</h3>
+                <img src="/img/주니어/나이키_보메로.png" style="width:100%">
+            </div>
 
-    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+            <div class="mySlides2">
+                <h3>주니어를 위한 러닝화</h3>
+                <img src="/img/주니어/나이키_인피니티런.png" style="width:100%">
+            </div>
+
+            <div class="mySlides2">
+                <h3>주니어를 위한 러닝화</h3>
+                <img src="/img/주니어/나이키_줌플라이.png" style="width:100%">
+            </div>
+            <div class="mySlides2">
+                <h3>주니어를 위한 러닝화</h3>
+                <img src="/img/주니어/써코니_엔돌핀_프로.png" style="width:100%">
+            </div>
+            <div class="mySlides2">
+                <h3>주니어를 위한 러닝화</h3>
+                <img src="/img/주니어/아디다스_아디제로_프라임.png" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+        </div>
+    </div>
 </div>
 
-<h3>민소매를 위한<br>러닝화</h3>
-<div class="slideshow-container">
-    <div class="mySlides3">
-        <img src="/img/민소매/나이키_베이퍼플라이.png" style="width:100%">
-    </div>
 
-    <div class="mySlides3">
-        <img src="/img/민소매/나이키_알파플라이.png" style="width:100%">
-    </div>
 
-    <div class="mySlides3">
-        <img src="/img/민소매/뉴발란스_퓨어셀_엘리트.png" style="width:100%">
+
+
+<div class="main_div" style="padding: 100px; display: flex; align-items: center;">
+    <img src="/img/itemMain/step3.jpg" style="width: 50%;">
+    <div style="flex: 1; padding-left: 20px;">
+        <div class="slideshow-container">
+            <div class="mySlides3">
+                <h3>민소매를 위한 러닝화</h3>
+                <img src="/img/민소매/나이키_베이퍼플라이.png" style="width:100%">
+            </div>
+            <div class="mySlides3">
+                <h3>민소매를 위한 러닝화</h3>
+                <img src="/img/민소매/나이키_알파플라이.png" style="width:100%">
+            </div>
+            <div class="mySlides3">
+                <h3>민소매를 위한 러닝화</h3>
+                <img src="/img/민소매/뉴발란스_퓨어셀_엘리트.png" style="width:100%">
+            </div>
+            <div class="mySlides3">
+                <h3>민소매를 위한 러닝화</h3>
+                <img src="/img/민소매/아디다스_아디제로_프로.png" style="width:100%">
+            </div>
+            <div class="mySlides3">
+                <h3>민소매를 위한 러닝화</h3>
+                <img src="/img/민소매/아식스_메타스피드_스카이플러스.png" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+        </div>
     </div>
-    <div class="mySlides3">
-        <img src="/img/민소매/아디다스_아디제로_프로.png" style="width:100%">
-    </div>
-    <div class="mySlides3">
-        <img src="/img/민소매/아식스_메타스피드_스카이플러스.png" style="width:100%">
-    </div>
-    <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
 </div>
+
+
 
     <script>
         let slideIndex = [1, 1, 1];
