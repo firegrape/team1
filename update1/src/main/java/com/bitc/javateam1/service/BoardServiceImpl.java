@@ -50,7 +50,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Page<BoardDTO> mateList(int pageNum) throws Exception {
-        PageHelper.startPage(pageNum, 6);
+        PageHelper.startPage(pageNum, 10);
         return boardMapper.mateList();
     }
 

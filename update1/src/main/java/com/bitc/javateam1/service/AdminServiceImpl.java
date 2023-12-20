@@ -17,7 +17,7 @@ public class AdminServiceImpl implements AdminService {
     BoardMapper boardMapper;
     @Override
     public Page<MemberDTO> userList(int pageNum) throws Exception {
-        PageHelper.startPage(pageNum, 5);
+        PageHelper.startPage(pageNum, 10);
         return memberMapper.userList();
     }
 
@@ -29,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Page<BoardDTO> postList(int pageNum, String cmId)throws Exception {
-        PageHelper.startPage(pageNum, 3);
+        PageHelper.startPage(pageNum, 10);
         return boardMapper.postList(pageNum, cmId);
     }
 

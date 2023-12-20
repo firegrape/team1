@@ -85,8 +85,6 @@
 
 .m_nick {
     font-size: 15px;
-    font-weight: bold;
-    border-top:  1px  solid #ddd; overflow: hidden;
     height: 80px;
 }
 

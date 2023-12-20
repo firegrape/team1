@@ -68,7 +68,7 @@
 
     <select id="postList"  parameterType="String" resultType="com.bitc.javateam1.dto.BoardDTO">
         SELECT
-        cm_id, title, cm_nick, postdate
+        cm_idx, cm_id, title, cm_nick, postdate
         FROM
         tb_comm
         WHERE

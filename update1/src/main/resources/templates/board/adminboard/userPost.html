@@ -16,12 +16,67 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <style>
-        table {
-            color: #04AA6D;
-        }
-        table.table-bordered th, table.table-bordered td {
 
-            border: 1px solid #04AA6D;
+        body {
+            background-color: white; /* 연한 회색 배경 */
+            color: #333; /* 어두운 글자색 */
+        }
+        .container {
+            max-width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        table {
+            width: 100%; /* 전체 폭을 늘림 */
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: auto; /* 가운데 정렬을 위해 margin 속성 추가 */
+            background-color: white; /* 흰색 테이블 배경 */
+        }
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: white; /* 분홍색 헤더 배경 */
+            color: black; /* 어두운 글자색으로 변경 */
+            /* 위아래 여백을 늘림 */
+            font-size: 14px;
+            border-top: 1px solid #222222;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            text-align: center; /* 가운데 정렬 추가 */
+        }
+
+        td{
+            padding: 25px;
+            font-size: 15px;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0; /* 더 어두운 그레이 톤 (hover 시) */
+        }
+
+        .board-main-title{
+            margin-left: 5px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .board-title{
+            font-weight: bolder;
+            font-size: 40px;
+        }
+
+        .board-sub-title{
+            margin-left: 3px;
+            font-size: 18px;
+            margin-top: 10px;
+            color: grey;
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -29,30 +84,38 @@
 <div th:replace="~{/layout/header :: header-basic}"></div>
 <main>
     <section>
-        <div>
+        <div class="container">
+            <div class="board-main-title">
+                <p class="board-title">회원 관리</p>
+                <p class="board-sub-title">작성 글 목록</p>
+            </div>
             <div>
-                <table class="table mt-5 table-bordered"> <!-- Bootstrap 테이블 클래스 추가 -->
+                <table> <!-- Bootstrap 테이블 클래스 추가 -->
                     <colgroup>
-                        <col style="width: 20%">
-                        <col style="width: 20%">
-                        <col style="width: 20%">
-                        <col style="width: 20%">
+                        <col style="width: 10%">
+                        <col style="width: 40%">
+                        <col style="width: 15%">
+                        <col style="width: 15%">
+                        <col style="width: 15%">
+
                     </colgroup>
-                    <thead class="thead-dark"> <!-- Bootstrap 다크 테이블 헤더 클래스 추가 -->
+                    <thead> <!-- Bootstrap 다크 테이블 헤더 클래스 추가 -->
                     <tr>
-                        <th>ID</th>
-                        <th>닉네임</th>
+                        <th>글번호</th>
                         <th>제목</th>
-                        <th>작성일자</th>
+                        <th>회원ID</th>
+                        <th>닉네임</th>
+                        <th>작성일</th>
 
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:if="${#lists.size(PageList.getList())} > 0" th:each="item : ${PageList.getList()}">
+                        <td th:text="${item.cmIdx}">글번호</td>
+                        <td th:text="${item.title}" style="text-align: left">제목</td>
                         <td th:text="${item.cmId}">ID</td>
                         <td th:text="${item.cmNick}">닉네임</td>
-                        <td th:text="${item.title}">제목</td>
-                        <td th:text="${item.postdate}">작성일자</td>
+                        <td th:text="${item.postdate}">작성일</td>
                     </tr>
                     <tr th:unless="${#lists.size(PageList.getList())} > 0">
                         <td colspan="4">조회된 내용이 없습니다.</td> <!-- 셀 병합 수를 4로 수정 -->
@@ -64,19 +127,19 @@
         <div class="mt-3">
             <ul class="pagination justify-content-center">
                 <li class="page-item" th:classappend="${PageList.getPrePage() == 0} ? 'disabled'">
-                    <a class="page-link" href="#" th:href="@{/admin/userPost(pageNum=${PageList.getPrePage()})}">&laquo;</a>
+                    <a class="page-link" href="#" style="color: black" th:href="@{/admin/userPost(pageNum=${PageList.getPrePage()})}">&laquo;</a>
                 </li>
-                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()} ? 'active'">
-                    <a class="page-link" href="#" th:href="@{/admin/userPost(pageNum=${page})}" th:text="${page}"></a> <!-- 수정 -->
+                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()}">
+                    <a class="page-link" href="#" style="color: black" th:href="@{/admin/userPost(pageNum=${page})}" th:text="${page}"></a> <!-- 수정 -->
                 </li>
                 <li class="page-item" th:classappend="${PageList.getNextPage() == 0} ? 'disabled'">
-                    <a class="page-link" href="#" th:href="@{/admin/userPost(pageNum=${PageList.getNextPage()})}">&raquo;</a>
+                    <a class="page-link" href="#" style="color: black" th:href="@{/admin/userPost(pageNum=${PageList.getNextPage()})}">&raquo;</a>
                 </li>
             </ul>
         </div>
         <div class="row mt-3">
             <div class="col-sm d-flex justify-content-end" style="padding-bottom: 20px">
-                <a href="/admin" th:href="@{/admin}" class="btn btn-primary">회원 목록</a>
+                <a href="/admin" th:href="@{/admin}" class="btn btn-dark">회원 목록</a>
             </div>
         </div>
     </section>

@@ -16,6 +16,25 @@
     <script src="/js/sub.js"></script>
 
     <title>Title</title>
+<style>
+    .board-main-title{
+        margin-left: 15px;
+        margin-top: 90px;
+        margin-bottom: 30px;
+    }
+
+    .board-title{
+        font-weight: bolder;
+        font-size: 40px;
+    }
+
+    .board-sub-title{
+        margin-left: 3px;
+        font-size: 17px;
+        margin-top: 10px;
+        color: gray;
+    }
+</style>
 </head>
 
 <body>
@@ -23,11 +42,15 @@
 <div th:replace="~{/layout/header :: header-basic}"></div>
 <main>
     <section style="width: 1400px">
+        <div class="board-main-title">
+            <p class="board-title">러닝 인증</p>
+            <p class="board-sub-title">인증해요!</p>
+        </div>
         <div>
-                <div class="card-container">
+            <div class="card-container">
 
-                    <article class="card " th:if="${#lists.size(PageList.getList())}> 0" th:each="item : ${PageList.getList()}">
-                        <a th:href="@{|/board/${item.cmIdx}|}">
+                <article class="card " th:if="${#lists.size(PageList.getList())}> 0" th:each="item : ${PageList.getList()}">
+                    <a th:href="@{|/board/${item.cmIdx}|}">
                         <img  class="card-image" th:src="${item.imgUrl}"  alt="카드 이미지" onerror="this.src='/img/alt.jpg'">
                         <div  class="card-content">
                             <h2 class="card-title" th:text="${item.title}"></h2>
@@ -35,38 +58,38 @@
                             <p class="mt-2 me-2 d-flex justify-content-end" th:text="${item.postdate}"></p>
                             <div class="c_nick">
                                 <img class="ms-2 me-1" src="/img/minsome_m.png">
-                            <a th:text="by + ${item.cmNick}"> </a>
+                                <a th:text="by + ${item.cmNick}"> </a>
                                 <p style="float:right" class="me-1 mt-1" th:text="${item.reviewCount}"></p>
                                 <img class="view ms-2 me-1" src="/img/review.jpg"  style="float: right">
                                 <p style="float:right" class="me-1 mt-1" th:text="${item.visitCount}"></p>
                                 <img class="view ms-2 me-1" src="/img/view.png" style="float: right">
                             </div>
                         </div>
-                        </a>
-                    </article>
-                </div>
+                    </a>
+                </article>
+            </div>
 
         </div>
         <div class="mt-5">
             <ul class="pagination justify-content-center">
 
                 <li class="page-item" th:classappend="${PageList.getPrePage() == 0} ? 'disabled'">
-                    <a class="page-link" href="#" th:href="@{/board(pageNum=${PageList.getPrePage()})}">&laquo;</a>
+                    <a class="page-link" href="#" style="color: black" th:href="@{/board(pageNum=${PageList.getPrePage()})}">&laquo;</a>
                 </li>
 
-                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()} ? 'active'">
-                    <a class="page-link" href="#" th:href="@{/board(pageNum=${page})}" th:text="${page}">1</a>
+                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()}">
+                    <a class="page-link" style="color: black" href="#" th:href="@{/board(pageNum=${page})}" th:text="${page}">1</a>
                 </li>
 
                 <li class="page-item" th:classappend="${PageList.getNextPage() == 0} ? 'disabled'">
-                    <a class="page-link" href="#" th:href="@{/board(pageNum=${PageList.getNextPage()})}">&raquo;</a>
+                    <a class="page-link" href="#" style="color: black" th:href="@{/board(pageNum=${PageList.getNextPage()})}">&raquo;</a>
                 </li>
             </ul>
         </div>
 
         <div class="row mt-3">
             <div class="col-sm d-flex justify-content-end">
-                <a href="/board/insert" th:href="@{/board/insert}" class="btn btn-primary">글쓰기</a>
+                <a href="/board/insert" th:href="@{/board/insert}" class="btn btn-dark">글쓰기</a>
             </div>
         </div>
     </section>

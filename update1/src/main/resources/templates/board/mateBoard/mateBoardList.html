@@ -12,40 +12,58 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/sub1.css">
     <link rel="stylesheet" href="/css/board/boardList.css">
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
 
     <style>
         body {
-            background-color: #f9f9f9; /* 연한 회색 배경 */
-            margin: 20px;
+            background-color: white; /* 연한 회색 배경 */
+            margin: 30px;
             color: #333; /* 어두운 글자색 */
         }
 
         table {
-            width: 90%; /* 전체 폭을 늘림 */
+            width: 100%; /* 전체 폭을 늘림 */
             border-collapse: collapse;
-            margin: 20px auto; /* 가운데 정렬을 위해 margin 속성 추가 */
-            background-color: #fff; /* 흰색 테이블 배경 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            border-spacing: 0;
+            margin: auto; /* 가운데 정렬을 위해 margin 속성 추가 */
+            background-color: white; /* 흰색 테이블 배경 */
+            /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* 그림자 효과 *!*/
         }
 
-        th, td {
-            border: 1px solid #ddd;
+
+        th {
+            background-color: white; /* 분홍색 헤더 배경 */
+            color: black; /* 어두운 글자색으로 변경 */
+            /* 위아래 여백을 늘림 */
+            font-size: 14px;
+            border-top: 1px solid #222222;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
             text-align: center; /* 가운데 정렬 추가 */
         }
 
-        th {
-            background-color: #4e8cff; /* 분홍색 헤더 배경 */
-            color: white; /* 어두운 글자색으로 변경 */
-            padding: 15px; /* 위아래 여백을 늘림 */
+        .board-main-title{
+            margin-left: -15px;
+            margin-top: 50px;
+        }
+
+        .board-title{
+            font-weight: bolder;
+            font-size: 40px;
+        }
+
+        .board-sub-title{
+            margin-left: 43px;
             font-size: 17px;
+            margin-top: 28px;
+            color: gray;
         }
 
-        td {
-            padding: 1px; /* 위아래 여백을 줄임 */
-        }
-
-        tr:nth-child(even) {
-            background-color: #f6f6f6; /* 연한 회색 짝수 행 배경 */
+        tr {
+            height: 1px;
+            font-size: 15px;
+            background-color: white; /* 연한 회색 짝수 행 배경 */
+            border-bottom: 1px solid #ddd;
         }
 
         tr:hover {
@@ -64,45 +82,52 @@
     <section>
         <div>
             <div>
+                <div class="board-main-title">
+                    <p class="board-title">｜민소메이트</p>
+                    <p class="board-sub-title">러닝 메이트를 구해봐요!</p>
+                </div>
+                <br>
                 <table>
                     <colgroup>
-                        <col style="width: 25%">
-                        <col style="width: 30%">
-                        <col style="width: 15%">
-                        <col style="width: 20%">
                         <col style="width: 10%">
+                        <col style="width: 35%">
+                        <col style="width: 15%">
+                        <col style="width: 10%">
+                        <col style="width: 5%">
                     </colgroup>
                     <thead>
                     <tr>
-                        <th>닉네임</th>
+                        <th>말머리</th>
                         <th>제목</th>
-                        <th>수준</th>
-                        <th>등록일자</th>
+                        <th style="text-align: left;">작성자</th>
+                        <th>작성일</th>
                         <th>조회수</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:if="${#lists.size(PageList.getList())} > 0" th:each="item : ${PageList.getList()}">
-                        <a th:href="@{|/board/${item.cmIdx}|}">
-                        <td class="m_nick">
-                            <img class="ms-2 me-1" src="/img/minsome_m.png"> <a th:text="${item.cmNick}">닉네임</a>
+                        <td style="text-align: center;">
+                            <a th:href="@{|/board/${item.cmIdx}|}" th:text="${item.cmIdx}">글번호</a>
                         </td>
                         <td>
                             <a th:href="@{|/board/${item.cmIdx}|}" th:text="${item.title}">제목</a>
                         </td>
-                        <td>
-                        <div class="mb-2" th:if="${item.level}==0" >
-                            <a class="a_board" style="color: royalblue">런린이</a>
-                        </div>
-                        <div class="mb-2" th:if="${item.level}==1" >
-                            <a class="a_board" style="color: goldenrod">주니어</a>
-                        </div>
-                        <div class="mb-2" th:if="${item.level}==2">
-                            <a class="a_board" style="color: red">민소매</a>
-                        </div>
+                        <td class="m_nick">
+                            <div class="mb-2" th:if="${item.level}==0">
+                                <img class="ms-2 me-1" src="/img/minsome_person.png">
+                                <a th:text="${item.cmNick}">런린이</a>
+                            </div>
+                            <div class="mb-2" th:if="${item.level}==1" >
+                                <img class="ms-2 me-1" src="/img/runsearch_s_2.png">
+                                <a th:text="${item.cmNick}">주니어</a>
+                            </div>
+                            <div class="mb-2" th:if="${item.level}==2">
+                                <img class="ms-2 me-1" src="/img/minsome_m.png">
+                                <a th:text="${item.cmNick}">민소매</a>
+                            </div>
                         </td>
-                        <td th:text="${item.postdate}">작성일자</td>
-                        <td th:text="${item.visitCount}">조회수</td>
+                        <td style="text-align: center;" th:text="${item.postdate}">작성일자</td>
+                        <td style="text-align: center;" th:text="${item.visitCount}">조회수</td>
                         </a>
                     </tr>
                     <tr th:unless="${#lists.size(PageList.getList())} > 0">
@@ -113,25 +138,25 @@
             </div>
         </div>
         <div class="mt-5">
-            <ul class="pagination justify-content-center">
+            <ul class="pagination justify-content-center" >
 
-                <li class="page-item" th:classappend="${PageList.getPrePage() == 0} ? 'disabled'">
-                    <a class="page-link" href="#" th:href="@{/mate(pageNum=${PageList.getPrePage()})}">&laquo;</a>
+                <li class="page-item" style="color: white" th:classappend="${PageList.getPrePage() == 0} ? 'disabled'">
+                    <a class="page-link" href="#" style="color: black" th:href="@{/mate(pageNum=${PageList.getPrePage()})}">&laquo;</a>
                 </li>
 
-                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()} ? 'active'">
-                    <a class="page-link" href="#" th:href="@{/mate(pageNum=${page})}" th:text="${page}">1</a>
+                <li class="page-item" th:each="page : ${#numbers.sequence(PageList.getNavigateFirstPage(), PageList.getNavigateLastPage())}" th:classappend="${page == PageList.getPageNum()}">
+                    <a class="page-link" style="color: black" href="#" th:href="@{/mate(pageNum=${page})}" th:text="${page}">1</a>
                 </li>
 
-                <li class="page-item" th:classappend="${PageList.getNextPage() == 0} ? 'disabled'">
-                    <a class="page-link" href="#" th:href="@{/mate(pageNum=${PageList.getNextPage()})}">&raquo;</a>
+                <li class="page-item" style="color: white" th:classappend="${PageList.getNextPage() == 0} ? 'disabled'">
+                    <a class="page-link" href="#" style="color: black" th:href="@{/mate(pageNum=${PageList.getNextPage()})}">&raquo;</a>
                 </li>
             </ul>
         </div>
 
         <div class="row mt-3">
             <div class="col-sm d-flex justify-content-end" style="padding-bottom: 20px">
-                <a href="/board/insert" th:href="@{/board/insert}" class="btn btn-primary">글쓰기</a>
+                <a href="/board/insert" th:href="@{/board/insert}" class="btn btn-dark">글쓰기</a>
             </div>
         </div>
     </section>
