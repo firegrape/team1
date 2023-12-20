@@ -2,6 +2,7 @@ package com.bitc.javateam1.service;
 
 import com.bitc.javateam1.dto.MemberDTO;
 import com.bitc.javateam1.mapper.MemberMapper;
+import com.bitc.javateam1.mapper.MypageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,8 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private MemberMapper memberMapper;
+	@Autowired
+	private MypageMapper mypageMapper;
 	@Override
 	public void Register(MemberDTO memberDTO) throws Exception{
 
@@ -33,6 +36,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void memberDel(String nick) throws Exception {
 		memberMapper.memberDel(nick);
+	}
+
+	@Override
+	public MemberDTO myPageInform(String nickName) throws Exception {
+		return mypageMapper.myPageInform(nickName);
 	}
 
 

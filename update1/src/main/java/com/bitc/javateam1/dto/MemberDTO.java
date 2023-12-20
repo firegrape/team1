@@ -11,4 +11,6 @@ public class MemberDTO {
 	private String name;
 	private String regidate;
 	private int grade;
+	private int reCount;
+	private int commCount;
 }

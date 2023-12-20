@@ -1,6 +1,7 @@
 package com.bitc.javateam1.controller;
 
 import com.bitc.javateam1.Utils.JSFunction;
+import com.bitc.javateam1.dto.MemberDTO;
 import com.bitc.javateam1.service.BoardService;
 import com.bitc.javateam1.service.MemberService;
 import com.bitc.javateam1.service.ReviewService;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/mypage")
@@ -28,6 +30,20 @@ public class MyPageController {
 
 
         return "mypage/mypage";
+    }
+
+    @RequestMapping("/about")
+    public ModelAndView MypageAbout(HttpServletRequest req)throws Exception{
+        ModelAndView mv = new ModelAndView("mypage/about");
+        HttpSession session = req.getSession();
+        String nickName = (String) session.getAttribute("nickName");
+
+        MemberDTO member = memberService.myPageInform(nickName);
+        mv.addObject("member", member);
+        System.out.println(member);
+
+
+        return mv;
     }
 
     @RequestMapping("/delete")

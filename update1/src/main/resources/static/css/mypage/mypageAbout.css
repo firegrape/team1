@@ -46,13 +46,18 @@ main{
 
 .pass_inform{
     padding-bottom: 30px;
-    border-top: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
+
+
 }
 
 .form_1{
-    padding-top: 150px;
-    width: 600px;
+    background-color: #f8f9fa;
+    border:none;
+    border-radius: 5%;
+    height: 500px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03), 0 3px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    width: 700px;
 }
 .btn_area{
     margin-right: 250px;
@@ -94,18 +99,18 @@ main{
 }
 .side_4{
 
-        padding-top: 20px;
-        padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px  solid #ddd; overflow: hidden;
 
-        height: 60px;
+    height: 60px;
 }
 
 .side_5{
     color: red;
     text-decoration: none;
     position: absolute;
-   left: 35%;
+    left: 35%;
     bottom: 0;
     padding-top: 20px;
 
