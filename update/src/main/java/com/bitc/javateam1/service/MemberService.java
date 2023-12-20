@@ -10,4 +10,6 @@ public interface MemberService {
 public MemberDTO getUserInfo(String id) throws Exception;
 
  int regiCheck(MemberDTO memberDTO)throws Exception;
+
+    void memberDel(String nick)throws Exception;
 }

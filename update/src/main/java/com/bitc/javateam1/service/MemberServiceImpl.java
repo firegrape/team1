@@ -30,5 +30,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.regiCheck(memberDTO);
 	}
 
+	@Override
+	public void memberDel(String nick) throws Exception {
+		memberMapper.memberDel(nick);
+	}
+
 
 }

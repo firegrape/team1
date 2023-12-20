@@ -14,4 +14,6 @@ public interface ReviewService {
     ReviewDTO SelectReviewRno(int rno)throws Exception;
 
     void DeleteallBoard(int cmIdx)throws Exception;
+
+    void DeleteNick(String cmNick)throws Exception;
 }

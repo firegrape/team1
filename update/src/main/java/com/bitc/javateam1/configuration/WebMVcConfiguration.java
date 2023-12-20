@@ -24,7 +24,8 @@ public class WebMVcConfiguration implements WebMvcConfigurer {
                 .excludePathPatterns("/login/login.do")
                 .excludePathPatterns("/login/logout.do");
 
-        registry.addInterceptor(new MasterCheck()).addPathPatterns("/admin/*");
+        registry.addInterceptor(new MasterCheck()).addPathPatterns("/admin")
+                .addPathPatterns("/admin/*");
 
     }
 

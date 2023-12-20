@@ -34,4 +34,8 @@ public interface BoardMapper {
     void  deleteFile(int cmIdx)throws Exception;
 
     void deleteImg(int cmIdx)throws Exception;
+
+    void MemberDelImg(@Param("cmNick")String cmNick)throws Exception;
+
+    void MemberDelComm(@Param("cmNick")String cmNick)throws Exception;
 }

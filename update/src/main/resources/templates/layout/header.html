@@ -24,13 +24,23 @@
                 <li><a href="/login/login.do">Login</a></li>
                 <li><a href="/login/register" th:href="@{/login/register}">Join</a></li>
             </ul>
-            <ul class="header_top" th:unless="${session.id} == null">
+            <ul class="header_top" th:unless="${session.id} == null or ${session.id} == 'admin'">
 
 
                 <li class="p_user"><p th:text="${session.nickName} +'님'"></p></li>
                 <li class="p_user"><p>반갑습니다.</p></li>
                 <li><a href="/mypage/mypage" th:href="@{/mypage/mypage}">MYPage</a></li>
                 <li><button id="logout_btn" class="btn_out" type="button">Logout</button></li>
+
+
+            </ul>
+            <ul class="header_top" th:if="${session.id} == 'admin' ">
+
+
+                <li class="p_user"><p th:text="${session.nickName} +'님'"></p></li>
+                <li class="p_user"><p>반갑습니다.</p></li>
+                <li><a  th:href="@{/admin}">ADMIN</a></li>
+                <li><button id="master_btn" class="btn_out" type="button">Logout</button></li>
 
 
             </ul>
@@ -102,6 +112,13 @@
             }
 
         });
+        $("#master_btn").on("click",function (){
+            if(confirm("로그아웃 하시겠습니까?")){
+                location.href="/login/logout.do";
+            }
+
+        });
+
 
     });
 

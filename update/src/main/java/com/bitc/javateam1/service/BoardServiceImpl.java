@@ -73,6 +73,8 @@ public class BoardServiceImpl implements BoardService {
         boardMapper.updatePost(board);
     }
 
+
+
     @Override
     public void insertBoard(BoardDTO board, MultipartHttpServletRequest multipart)throws Exception {
         boardMapper.insertBoard(board);
@@ -86,5 +88,15 @@ public class BoardServiceImpl implements BoardService {
         }
 
 
+
+    }
+    @Override
+    public void MemberDelImg(String cmNick) throws Exception {
+        boardMapper.MemberDelImg(cmNick);
+    }
+
+    @Override
+    public void MemberDelComm(String cmNick) throws Exception {
+        boardMapper.MemberDelComm(cmNick);
     }
 }

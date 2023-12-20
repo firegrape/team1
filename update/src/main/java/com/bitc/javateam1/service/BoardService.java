@@ -22,4 +22,8 @@ public interface BoardService {
     void updatePost(BoardDTO board)throws Exception;
 
     void updatePostImg(BoardDTO board, MultipartHttpServletRequest multipart)throws Exception;
+
+    void MemberDelImg(String cmNick)throws Exception;
+
+    void MemberDelComm(String cmNick)throws Exception;
 }

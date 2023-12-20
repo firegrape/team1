@@ -20,4 +20,6 @@ public interface MemberMapper {
 	MemberDTO userDetail(int idx)throws Exception;
 
 	int regiCheck(MemberDTO memberDTO)throws Exception;
+
+	void memberDel(@Param("nickName") String nick)throws Exception;
 }

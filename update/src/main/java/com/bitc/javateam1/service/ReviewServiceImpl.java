@@ -36,4 +36,9 @@ public class ReviewServiceImpl implements ReviewService {
     public void DeleteallBoard(int cmIdx) throws Exception {
         reviewMapper.DeleteallBoard(cmIdx);
     }
+
+    @Override
+    public void DeleteNick(String cmNick) throws Exception {
+        reviewMapper.DeleteNick(cmNick);
+    }
 }

@@ -59,5 +59,10 @@
         select count(*)
         from tb_login where id = #{id} or nickname = #{nickName};
     </select>
+
+    <delete id="memberDel" parameterType="com.bitc.javateam1.dto.MemberDTO">
+        DELETE FROM tb_login
+        WHERE nickname = #{nickName}
+    </delete>
 </mapper>
 

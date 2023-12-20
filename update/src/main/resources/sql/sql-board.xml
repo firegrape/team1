@@ -99,4 +99,16 @@
         ORDER BY
         cm_idx DESC
     </select>
+
+    <delete id="MemberDelComm" parameterType="com.bitc.javateam1.dto.BoardDTO">
+        delete
+        from tb_comm
+        where cm_nick = #{cmNick};
+
+    </delete>
+    <delete id="MemberDelImg" parameterType="com.bitc.javateam1.dto.BoardDTO">
+        DELETE
+        FROM tb_comm_img
+        WHERE cm_idx IN (SELECT cm_idx FROM tb_comm WHERE cm_nick = #{cmNick})
+    </delete>
 </mapper>

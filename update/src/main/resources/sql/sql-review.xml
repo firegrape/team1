@@ -35,4 +35,10 @@
         DELETE from tb_reply
         where comm_idx = #{cmIdx}
     </delete>
+
+    <delete id="DeleteNick" parameterType="com.bitc.javateam1.dto.ReviewDTO">
+        DELETE from tb_reply
+        where re_nick = #{reNick};
+    </delete>
+
 </mapper>
