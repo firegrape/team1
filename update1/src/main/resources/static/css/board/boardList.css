@@ -60,9 +60,9 @@
 .c_nick{
 
     font-size: 12px;
-    font-weight: lighter;
-
+    font-weight: normal;
     border-top:  1px  solid #ddd; overflow: hidden;
+    padding-top: 2px;
     height: 80px;
 
 }

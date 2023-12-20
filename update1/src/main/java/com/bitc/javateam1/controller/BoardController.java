@@ -127,10 +127,17 @@ public class BoardController {
 
     }
 
+    //게시글 삭제
+    @RequestMapping("/board/deleteBoard.do")
+    public String deleteBoard(@RequestParam("cmIdx") int cmIdx) throws Exception {
+        reviewService.DeleteallBoard(cmIdx);
 
+        boardService.deleteBoard(cmIdx);
 
+        return "redirect:/board";
+    }
 
-    //  게시글 삭제하기
+    //  관리자 게시글 삭제하기
     @GetMapping("board/deleteBoard/{cmIdx}")
     public void AdCommDel(@PathVariable("cmIdx") int cmIdx,HttpServletRequest req, HttpServletResponse res) throws Exception {
         reviewService.DeleteallBoard(cmIdx);

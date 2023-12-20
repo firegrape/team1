@@ -17,25 +17,39 @@
     <script src="/js/sub.js"></script>
 
     <title>Title</title>
-<style>
-    .board-main-title{
-        margin-left: 15px;
-        margin-top: 90px;
-        margin-bottom: 30px;
-    }
+    <style>
+        .board-main-title{
+            margin-left: -5px;
+            margin-top: 80px;
+            margin-bottom: 30px;
+        }
 
-    .board-title{
-        font-weight: bolder;
-        font-size: 40px;
-    }
+        .board-title{
+            font-weight: bolder;
+            font-size: 40px;
+        }
 
-    .board-sub-title{
-        margin-left: 3px;
-        font-size: 17px;
-        margin-top: 10px;
-        color: gray;
-    }
-</style>
+        .board-sub-title{
+            margin-left: 42px;
+            font-size: 17px;
+            margin-top: 30px;
+            color: grey;
+        }
+
+        .font{
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        .nick{
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .date{
+            font-size: 16px;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +58,7 @@
 <main>
     <section style="width: 1400px">
         <div class="board-main-title">
-            <p class="board-title">러닝 인증</p>
+            <p class="board-title">｜러닝 인증</p>
             <p class="board-sub-title">인증해요!</p>
         </div>
         <div>
@@ -56,13 +70,13 @@
                         <div  class="card-content">
                             <h2 class="card-title" th:text="${item.title}"></h2>
 
-                            <p class="mt-2 me-2 d-flex justify-content-end" th:text="${item.postdate}"></p>
+                            <p class="mt-2 me-2 d-flex justify-content-end date" th:text="${item.postdate}"></p>
                             <div class="c_nick">
                                 <img class="ms-2 me-1" src="/img/minsome_m.png">
-                                <a th:text="by + ${item.cmNick}"> </a>
-                                <p style="float:right" class="me-1 mt-1" th:text="${item.reviewCount}"></p>
+                                <a class="nick" th:text="${item.cmNick}"> </a>
+                                <p style="float:right" class="me-1 mt-1 font" th:text="${item.reviewCount}"></p>
                                 <img class="view ms-2 me-1" src="/img/review.jpg"  style="float: right">
-                                <p style="float:right" class="me-1 mt-1" th:text="${item.visitCount}"></p>
+                                <p style="float:right" class="me-1 mt-1 font" th:text="${item.visitCount}"></p>
                                 <img class="view ms-2 me-1" src="/img/view.png" style="float: right">
                             </div>
                         </div>
