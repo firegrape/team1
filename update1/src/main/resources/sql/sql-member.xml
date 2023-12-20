@@ -64,5 +64,23 @@
         DELETE FROM tb_login
         WHERE nickname = #{nickName}
     </delete>
+
+
+    <select id="memberInformation" parameterType="String" resultType="com.bitc.javateam1.dto.MemberDTO">
+        SELECT id, password, nickname, name
+        FROM tb_login
+        WHERE id = #{id}
+    </select>
+
+    <update id="edit" parameterType="com.bitc.javateam1.dto.MemberDTO">
+        UPDATE tb_login SET name = #{name}, password = #{password}, nickname = #{nickName}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectNickName" parameterType="String" resultType="int">
+        select count(*)as cnt
+        from tb_login
+        where nickname = #{nickName}
+    </select>
 </mapper>
 

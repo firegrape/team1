@@ -21,10 +21,7 @@
           crossorigin="anonymous"></script>
   <!-- aos css -->
 
-
   <link rel="stylesheet" href="/css/sub1.css">
-
-  <link rel="stylesheet" href="/css/sidebar.css">
 
   <script src="/js/sub.js"></script>
   <script src="/js/script.js"></script>
@@ -77,10 +74,9 @@
       <main>
         <div class="sidenav">
           <a class="side_1" href="#"><img src="/img/minsome_s_m.png"></a>
-          <a  class="side_2" th:text="${session.nickName}"></a>
+          <a  class="side_2" href="/mypage/about" th:text="${session.nickName}"></a>
 
-          <a class="side_3" href="#">정보 수정</a>
-          <a class="side_4" href="#">민소매 활동</a>
+          <a class="side_3" href="/mypage/mypage">정보 수정</a>
           <a class="side_5" href="/mypage/delete">회원탈퇴</a>
         </div>
 
@@ -107,7 +103,10 @@
     </div>
   </main>
 </div>
+  </main>
+</div>
 <div th:replace="~{/layout/footer :: footer-basic}"></div>
 </body>
+
 
 </html>

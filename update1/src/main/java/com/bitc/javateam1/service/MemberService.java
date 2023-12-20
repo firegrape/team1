@@ -14,4 +14,10 @@ public MemberDTO getUserInfo(String id) throws Exception;
     void memberDel(String nick)throws Exception;
 
     MemberDTO myPageInform(String nickName)throws Exception;
+
+    public MemberDTO memberInformation(String id) throws Exception;
+
+    public void dataEdit(MemberDTO dto) throws Exception;
+
+    public boolean selectNickName(String nickName); //중복 nickName 검색
 }

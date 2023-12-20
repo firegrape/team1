@@ -43,5 +43,27 @@ public class MemberServiceImpl implements MemberService {
 		return mypageMapper.myPageInform(nickName);
 	}
 
+	@Override
+	public MemberDTO memberInformation(String id) throws Exception {
+		return memberMapper.memberInformation(id);
+	}
+
+	@Override
+	public void dataEdit(MemberDTO dto) throws Exception {
+		memberMapper.edit(dto);
+	}
+
+
+	@Override
+	public boolean selectNickName(String nickName) {
+		int result = memberMapper.selectNickName(nickName);
+
+		if (result > 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 
 }

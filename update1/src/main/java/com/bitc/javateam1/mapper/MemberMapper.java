@@ -22,4 +22,11 @@ public interface MemberMapper {
 	int regiCheck(MemberDTO memberDTO)throws Exception;
 
 	void memberDel(@Param("nickName") String nick)throws Exception;
+
+	MemberDTO memberInformation(String id) throws Exception;
+
+	public void edit(MemberDTO dto) throws Exception;
+
+	public int selectNickName(String nickName); //중복 nickName 검색
+
 }

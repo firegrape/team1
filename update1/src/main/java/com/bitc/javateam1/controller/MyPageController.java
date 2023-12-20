@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -25,12 +26,59 @@ public class MyPageController {
     @Autowired
     MemberService memberService;
 
+    // 현재 내 회원정보를 출력
     @RequestMapping("/mypage")
-    public String MypageMain()throws Exception{
+    public ModelAndView MypageMain(HttpServletRequest req) throws Exception{
+        ModelAndView mv = new ModelAndView("mypage/mypage");
 
+        HttpSession session = req.getSession();
+        String id = (String) session.getAttribute("id");
 
-        return "mypage/mypage";
+        MemberDTO dto = memberService.memberInformation(id);
+        mv.addObject("member", dto);
+
+        return mv;
     }
+//
+
+    // 회원정보 수정
+    @RequestMapping(value = "/mypageEditProcess", method = RequestMethod.POST)
+    public void mypageEditProcss(MemberDTO dto, HttpServletRequest req,HttpServletResponse res) throws Exception {
+
+        memberService.dataEdit(dto);
+
+        HttpSession session = req.getSession();
+
+        session.removeAttribute("id");
+        session.removeAttribute("nickName");
+        session.removeAttribute("password");
+
+        session.invalidate();
+
+        JSFunction.alertLocation("회원 정보가 수정되었습니다. 다시 로그인해주세요", "/main/minsome", res);
+    }
+
+    //nickName 중복 확인
+    @PostMapping("/ConfirmNickName")
+    @ResponseBody
+    public ResponseEntity<Boolean> confirmNickName(String nickName) {
+
+        boolean result = true;
+
+        if(nickName.trim().isEmpty()) {
+            result = false;
+        } else {
+            result = memberService.selectNickName(nickName);
+//            if (memberService.selectNickName(nickName)) {
+//                result = false;
+//            } else {
+//                result = true;
+//            }
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
 
     @RequestMapping("/about")
     public ModelAndView MypageAbout(HttpServletRequest req)throws Exception{
