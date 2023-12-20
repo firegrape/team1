@@ -162,8 +162,8 @@ body {
 .sub {
     width: 100%;
     position: absolute;
-    top: 100px;
-    left: 0;
+    top: 130px;
+    left: 75px;
     background-color: rgb(255, 255, 255, 0.5);
     display: none;
 
@@ -190,6 +190,7 @@ body {
 }
 .menu3{
     width: 100px;
+
 }
 .sub_in ul {
 
