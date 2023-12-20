@@ -73,9 +73,13 @@ public class BoardController {
     public String boardInsertProcess(BoardDTO board,  MultipartHttpServletRequest multipart) throws Exception {
 
         boardService.insertBoard(board, multipart);
-
-        return "redirect:/board";
-    }
+       int result = board.getCmNum();
+       if(result==0) {
+           return "redirect:/board";
+       }else{
+           return "redirect:/mate";
+       }
+       }
 
     //글 수정 폼
     @GetMapping("board/update/{cmIdx}")
